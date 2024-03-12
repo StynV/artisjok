@@ -1,4 +1,10 @@
-export const performRequest = async ({ query, variables = {}, includeDrafts = false }) => {
+type PerformRequestParams = {
+  query: string;
+  variables?: { [key: string]: any }; // Replace 'any' with a more specific type if possible
+  includeDrafts?: boolean;
+};
+
+export const performRequest = async ({ query, variables = {}, includeDrafts = false }: PerformRequestParams) => {
     const response = await fetch("https://graphql.datocms.com/", {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
@@ -10,7 +16,7 @@ export const performRequest = async ({ query, variables = {}, includeDrafts = fa
     });
     
     const responseBody = await response.json();
-    console.log(responseBody)
+
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}: ${JSON.stringify(responseBody)}`);
     }
