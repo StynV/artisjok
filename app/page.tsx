@@ -1,9 +1,19 @@
-import Image from "next/image";
+import { performRequest } from "@/datocms";
 
-export default function Home() {
+const PAGE_CONTENT_QUERY = `
+query MyQuery {
+  homePagina {
+    title,
+    naam
+  }
+}`;
+
+export default async function Home() {
+  const { data: { homePagina } } = await performRequest({query: PAGE_CONTENT_QUERY})
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>title</p>
+      <p>{homePagina.title}</p>
     </main>
   );
 }
