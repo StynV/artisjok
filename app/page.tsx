@@ -3,8 +3,7 @@ import { performRequest } from "@/datocms";
 const PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
-    title,
-    naam
+    title
   }
 }`;
 
