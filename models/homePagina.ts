@@ -1,3 +1,5 @@
+import { StructuredTextDocument } from 'datocms-structured-text-to-dom-nodes';
+
 export interface Achtergrond {
     url: string,
     alt: string,
@@ -7,5 +9,8 @@ export interface Achtergrond {
 
 export interface HomePagina {
     titel: string,
+    infoTekst: {
+        value: StructuredTextDocument
+    }
     achtergrond: Achtergrond
 }
