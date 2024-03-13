@@ -16,6 +16,8 @@ query MyQuery {
       height
       width
     }
+    telefoonNummer
+    adres
   }
 }
 `;
@@ -36,6 +38,11 @@ export default async function Home() {
           {nodes?.map(node => <YGWYS key={node.id} html={node.outerHTML} />)} 
         </article>
       </section>
+
+      <footer className="flex flex-col text-center">
+        <p>{homePagina.adres}</p>
+        <p>{homePagina.telefoonNummer}</p>
+      </footer>
 
     </main>
   );

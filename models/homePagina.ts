@@ -12,5 +12,7 @@ export interface HomePagina {
     infoTekst: {
         value: StructuredTextDocument
     }
-    achtergrond: Achtergrond
+    achtergrond: Achtergrond,
+    telefoonNummer: string,
+    adres: string
 }
