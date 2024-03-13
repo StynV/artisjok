@@ -1,10 +1,10 @@
 type PerformRequestParams = {
   query: string;
-  variables?: { [key: string]: any }; // Replace 'any' with a more specific type if possible
+  variables?: { [key: string]: any };
   includeDrafts?: boolean;
 };
 
-export const performRequest = async ({ query, variables = {}, includeDrafts = false }: PerformRequestParams) => {
+export const performRequest = async <T>({ query, variables = {}, includeDrafts = false }: PerformRequestParams): Promise<T> => {
     const response = await fetch("https://graphql.datocms.com/", {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,

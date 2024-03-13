@@ -1,18 +1,28 @@
 import { performRequest } from "@/datocms";
+import { HomePagina } from "@/models/homePagina";
 
 const PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
-    title
+    titel
+    achtergrond {
+      url
+      alt
+      height
+      width
+    }
   }
-}`;
+}
+`;
 
 export default async function Home() {
-  const { data: { homePagina } } = await performRequest({query: PAGE_CONTENT_QUERY})
+  const { data: { homePagina } } = await performRequest<{ data: { homePagina: HomePagina } }>({query: PAGE_CONTENT_QUERY})
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>{homePagina.title}</p>
+    <main>
+      <header className='bg-no-repeat bg-cover bg-center pt-96' style={{ backgroundImage: `url(${homePagina.achtergrond.url})` }}>
+        <h1 className="text-6xl pt-96 pb-48 pl-40 text-white">{homePagina.titel}</h1>
+      </header>
     </main>
   );
 }
