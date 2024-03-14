@@ -13,6 +13,7 @@ export interface HomePagina {
         value: StructuredTextDocument
     }
     achtergrond: Achtergrond,
+    naam: string,
+    email: string,
     telefoonNummer: string,
-    adres: string
 }

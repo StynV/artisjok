@@ -16,7 +16,8 @@ query MyQuery {
       width
     }
     telefoonNummer
-    adres
+    naam
+    email
   }
 }
 `;
