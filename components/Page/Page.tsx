@@ -18,7 +18,7 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
       error(...args);
   };
 
-  const text = 'pt-20 md:pl-40 pl-10 text-xl'
+  const text = 'pt-20 md:pl-40 pl-10 text-xl text-black'
   const section = 'bg-white min-h-screen'
 
   const handleSectionChange = (number: number) => {
