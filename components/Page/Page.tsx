@@ -64,9 +64,9 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
           className={`flex flex-col text-center text-xl ${section}`}
           id="contact"
         >
-          <p className='pt-20 text-xl'>{homePagina.naam}</p>
-          <p className='text-xl'>{homePagina.email}</p>
-          <p className='text-xl'>{homePagina.telefoonNummer}</p>            
+          <p className='pt-20 text-xl text-black'>{homePagina.naam}</p>
+          <p className='text-xl text-black'>{homePagina.email}</p>
+          <p className='text-xl text-black'>{homePagina.telefoonNummer}</p>            
         </section>
       </ReactPageScroller>
     </>
