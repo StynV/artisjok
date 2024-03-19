@@ -18,7 +18,7 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
       error(...args);
   };
 
-  const text = 'pt-20 md:pl-40 pl-10 text-xl text-black'
+  const text = 'md:pl-40 pl-10 text-xl text-black min-h-screen flex flex-col justify-center pr-10 md:w-1/2'
   const section = 'bg-white min-h-screen'
 
   const handleSectionChange = (number: number) => {
@@ -48,7 +48,7 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
           className={section}
           id="welcome"
         >
-          <article className={`${text} mb-20 pr-10 md:w-1/2`}>
+          <article className={text}>
             {nodes?.map(node => <YGWYS key={getUniqueId()} html={node.outerHTML} />)} 
           </article>
         </section>
