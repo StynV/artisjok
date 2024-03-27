@@ -41,7 +41,7 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
           className='bg-no-repeat bg-cover bg-center md:pt-96 min-h-screen'
           style={{ backgroundImage: `url(${homePagina.achtergrond.url})` }}
         >
-          <h1 className='md:text-6xl text-4xl md:w-1/2 md:pt-96 pt-64 pb-48 md:pl-40 pl-10 text-white'>{homePagina.titel}</h1>
+          <h1 className='md:text-6xl text-4xl md:w-1/2 pt-96 lg:pt-40 pb-48 md:pl-40 pl-10 text-white'>{homePagina.titel}</h1>
         </header>
 
         <section
