@@ -6,6 +6,7 @@ import { render as dastRender } from 'datocms-structured-text-to-dom-nodes';
 import getUniqueId from '@/helpers/getUniqueId';
 import { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import Image from 'next/image';
 
 const Page = ({homePagina}: {homePagina: HomePagina}) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
@@ -38,10 +39,15 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
         pageOnChange={handleSectionChange}
       >
         <header
-          className='bg-no-repeat bg-cover bg-center md:pt-80 min-h-screen'
-          style={{ backgroundImage: `url(${homePagina.achtergrond.url})` }}
+          className={`${section} flex justify-center items-center`}
         >
-          <h1 className='md:text-6xl text-4xl xl:w-1/2 2xl:pt-96 pt-80 md:pt-0 pb-48 md:pl-40 pl-10 text-white'>{homePagina.titel}</h1>
+          <Image
+            src={homePagina.logo.url}
+            alt={homePagina.logo.alt}
+            height={homePagina.logo.height}
+            width={homePagina.logo.width}
+            priority
+          />
         </header>
 
         <section

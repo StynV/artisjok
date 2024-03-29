@@ -8,11 +8,10 @@ export interface Achtergrond {
 }
 
 export interface HomePagina {
-    titel: string,
     infoTekst: {
         value: StructuredTextDocument
     }
-    achtergrond: Achtergrond,
+    logo: Achtergrond,
     naam: string,
     email: string,
     telefoonNummer: string,

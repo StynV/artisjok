@@ -5,13 +5,12 @@ import { HomePagina } from "@/models/homePagina";
 const PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
-    achtergrond {
+    logo {
       url
       alt
       height
       width
     }
-    titel
     infoTekst {
       value
     }
