@@ -6,7 +6,6 @@ const Form = () => {
         naam: "",
         opmerking: ""
     })
-    const [formSuccessMessage, setFormSuccessMessage] = useState()
 
     const handleInput = (e: any) => {
         const fieldName = e.target.name
@@ -27,7 +26,6 @@ const Form = () => {
                 opmerking: formData.opmerking
             }
         )
-        console.log(response)
     }
 
     return (

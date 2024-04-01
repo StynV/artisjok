@@ -3,8 +3,9 @@ import getUniqueId from '@/helpers/getUniqueId';
 import { render as dastRender } from 'datocms-structured-text-to-dom-nodes';
 import { StructuredTextDocument } from 'datocms-structured-text-to-dom-nodes';
 import Form from '../Form/Form';
+import { Feedback } from '@/models/feedback';
 
-const IAM = ({value}: {value: StructuredTextDocument}) => {
+const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedbacks: Feedback[] }) => {
     const nodes = dastRender(value)
 
     return (
@@ -18,7 +19,15 @@ const IAM = ({value}: {value: StructuredTextDocument}) => {
                 </article>
             </section>
             <section className='md:flex-1'>
-                <p>rechts</p>
+                {allFeedbacks.map(feedback => 
+                    <div
+                        className='bg-blue-200 mb-10'
+                        key={feedback.id}
+                    >
+                        <p>{feedback.naam}</p>
+                        <p>{feedback.opmerking}</p>
+                    </div>
+                )}
             </section>
         </section>
     )

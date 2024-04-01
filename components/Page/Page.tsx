@@ -5,10 +5,10 @@ import { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Image from 'next/image';
 import IAM from '../Pages/IAM';
+import { Feedback } from '@/models/feedback';
 
-const Page = ({homePagina}: {homePagina: HomePagina}) => {
+const Page = ({ homePagina, allFeedbacks }: { homePagina: HomePagina, allFeedbacks: Feedback[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
-
 
   const error = console.error;
   console.error = (...args: any) => {
@@ -50,7 +50,7 @@ const Page = ({homePagina}: {homePagina: HomePagina}) => {
         <section
           className={section}
         >
-          <IAM value={homePagina.infoTekst.value} />
+          <IAM value={homePagina.infoTekst.value} allFeedbacks={allFeedbacks} />
         </section>
 
         <section
