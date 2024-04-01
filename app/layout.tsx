@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { performRequest } from "@/datocms";
+import { performRequest } from "@/datocms/performRequest";
 import { Layout } from "@/models/layout";
 import "./globals.css";
 

@@ -1,5 +1,5 @@
 import Page from "@/components/Page/Page";
-import { performRequest } from "@/datocms";
+import { performRequest } from "@/datocms/performRequest";
 import { HomePagina } from "@/models/homePagina";
 
 const PAGE_CONTENT_QUERY = `
