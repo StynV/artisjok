@@ -9,9 +9,9 @@ const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedba
     const nodes = dastRender(value)
 
     return (
-        <section className='min-h-screen flex md:flex-row flex-col items-center md:pl-40 md:pr-40'>
+        <section className='min-h-screen flex md:flex-row flex-col items-center justify-center md:pl-40 md:pr-40'>
             <section className='md:flex-1'>
-                <article>
+                <article className='mb-4'>
                     {nodes?.map(node => <YGWYS key={getUniqueId()} html={node.outerHTML} />)}
                 </article>
                 <article className='md:mt-10'>
@@ -21,7 +21,7 @@ const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedba
             <section className='md:flex-1'>
                 {allFeedbacks.map(feedback => 
                     <div
-                        className='bg-blue-200 mb-10 rounded-md md:p-4'
+                        className='bg-blue-200 md:mb-10 mb-4 rounded-md md:p-4'
                         key={feedback.id}
                     >
                         <p className='text-xl'>{feedback.naam}</p>

@@ -38,10 +38,10 @@ const Form = () => {
     return (
         <form
             onSubmit={submitForm}
-            className="md:mr-10"
+            className="md:mr-10 mb-10"
         >
             <div className="flex flex-col">
-                <label className="md:mb-2 flex flex-row">
+                <label className="mb-2 flex flex-row">
                     <p>Naam</p>
                     <p className="text-red-600">*</p>
                 </label>
@@ -51,12 +51,12 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.naam}
                     required
-                    className="border border-slate-300 md:mb-2 rounded-md p-2"
+                    className="border border-slate-300 mb-2 rounded-md p-2"
                 />
             </div>
             
             <div className="flex flex-col">
-                <label className="md:mb-2 flex flex-row">
+                <label className="mb-2 flex flex-row">
                     <p>Opmerking</p>
                     <p className="text-red-600">*</p>
                 </label>
@@ -65,7 +65,7 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.opmerking}
                     required
-                    className="border border-slate-300 md:mb-2 rounded-md p-2"
+                    className="border border-slate-300 mb-2 rounded-md p-2"
                 />
             </div>
 

@@ -11,7 +11,7 @@ import { performRequest } from '@/datocms/performRequest';
 
 const FEEDBACK_QUERY = `
 query MyQuery {
-  allFeedbacks {
+  allFeedbacks(first: 4) {
     naam
     opmerking
     id
