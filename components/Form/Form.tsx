@@ -1,7 +1,10 @@
+import { useFeedbackSubmittedContext } from "@/context/feedback"
 import { postFeedbackRequest } from "@/datocms/postFeedbackRequest"
 import { useState } from "react"
 
 const Form = () => {
+    const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext()
+
     const [formData, setFormData] = useState({
         naam: "",
         opmerking: ""
@@ -26,6 +29,10 @@ const Form = () => {
                 opmerking: formData.opmerking
             }
         )
+
+        if (response) {
+            reSetchSubmittedFeedbacks()
+        }
     }
 
     return (
@@ -44,7 +51,7 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.naam}
                     required
-                    className="border border-slate-300 md:mb-2 rounded-md pl-2"
+                    className="border border-slate-300 md:mb-2 rounded-md p-2"
                 />
             </div>
             
@@ -58,7 +65,7 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.opmerking}
                     required
-                    className="border border-slate-300 md:mb-2 rounded-md pl-2"
+                    className="border border-slate-300 md:mb-2 rounded-md p-2"
                 />
             </div>
 

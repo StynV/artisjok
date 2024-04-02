@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        const client = buildClient({ apiToken: process.env.NEXT_DATOCMS_API_TOKEN ?? '' })
+        const client = buildClient({ apiToken: process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN ?? '' })
 
         const record = await client.items.create({
             item_type: { type: 'item_type', id: 'X-TC4MkLRPO0dvmH_7JmrQ' },

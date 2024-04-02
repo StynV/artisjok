@@ -21,10 +21,10 @@ const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedba
             <section className='md:flex-1'>
                 {allFeedbacks.map(feedback => 
                     <div
-                        className='bg-blue-200 mb-10'
+                        className='bg-blue-200 mb-10 rounded-md md:p-4'
                         key={feedback.id}
                     >
-                        <p>{feedback.naam}</p>
+                        <p className='text-xl'>{feedback.naam}</p>
                         <p>{feedback.opmerking}</p>
                     </div>
                 )}

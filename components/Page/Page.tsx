@@ -1,14 +1,46 @@
 'use client'
 import { HomePagina } from '@/models/homePagina';
 import ReactPageScroller from 'react-page-scroller';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Image from 'next/image';
 import IAM from '../Pages/IAM';
 import { Feedback } from '@/models/feedback';
+import { useFeedbackSubmittedContext } from '@/context/feedback';
+import { performRequest } from '@/datocms/performRequest';
 
-const Page = ({ homePagina, allFeedbacks }: { homePagina: HomePagina, allFeedbacks: Feedback[] }) => {
+const FEEDBACK_QUERY = `
+query MyQuery {
+  allFeedbacks {
+    naam
+    opmerking
+    id
+  }
+}
+`
+
+const Page = ({ homePagina }: { homePagina: HomePagina }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
+
+  const handleSectionChange = (number: number) => {
+    setCurrentPageNumber(number)
+  }
+
+  const handleNavBarClick = (index: number) => {
+    setCurrentPageNumber(index)
+  }
+
+  const [allFeedbacks, setAllFeedbacks] = useState<Feedback[]>([])
+  const { feedbackSubmitted } = useFeedbackSubmittedContext()
+  
+  useEffect(() => {
+    async function fetchFeedbacks() {
+      const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({query: FEEDBACK_QUERY})
+      setAllFeedbacks(allFeedbacks)
+    }
+
+    fetchFeedbacks()
+  }, [feedbackSubmitted])
 
   const error = console.error;
   console.error = (...args: any) => {
@@ -18,14 +50,6 @@ const Page = ({ homePagina, allFeedbacks }: { homePagina: HomePagina, allFeedbac
 
   const text = 'md:pl-40 pl-10 text-xl text-black min-h-screen flex flex-col justify-center pr-10 md:w-1/2'
   const section = 'bg-white min-h-screen'
-
-  const handleSectionChange = (number: number) => {
-    setCurrentPageNumber(number)
-  }
-
-  const handleNavBarClick = (index: number) => {
-    setCurrentPageNumber(index)
-  }
 
   return (
     <>
