@@ -12,6 +12,11 @@ import { FEEDBACK_QUERY } from '@/datocms/queries';
 import KalenderItem from '../KalenderItem/KalenderItem';
 import HomePage from '../Pages/HomePage';
 import Image from 'next/image';
+import YGWYS from '../YGWYS/YGWYS';
+import { render as dastRender } from 'datocms-structured-text-to-dom-nodes';
+import getUniqueId from '@/helpers/getUniqueId';
+import Link from 'next/link';
+import Icon from '../Icon/Icon';
 
 const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalenders: AllKalenders[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
@@ -43,6 +48,8 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
   };
 
   const section = 'bg-white min-h-screen'
+
+  const nodes = dastRender(homePagina.adres.value)
 
   return (
     <>
@@ -78,13 +85,17 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
             width={homePagina.logo.width}
             priority
           />
-          <div className='flex flex-row'>
-            <div>
-              <p className='pt-20 text-xl text-black'>{homePagina.naam}</p>
+          <div className='flex flex-row w-full'>
+            <div className='md:flex-1 flex flex-col items-center'>
+              <p className='pt-20 text-xl text-black'>{homePagina.titel}</p>
+              {nodes?.map(node => <YGWYS className='text-xl text-black' key={getUniqueId()} html={node.outerHTML} />)}
               <p className='text-xl text-black'>{homePagina.email}</p>
-              <p className='text-xl text-black'>{homePagina.telefoonNummer}</p>
             </div>
-            <p>icons</p>  
+            <div className='md:flex-1 flex flex-row gap-5 items-center'>
+              <Icon href={homePagina.facebook} src={homePagina.facebookLogo.url} alt={homePagina.facebookLogo.alt} />
+              <Icon href={homePagina.instagram} src={homePagina.instagramLogo.url} alt={homePagina.instagramLogo.alt} />
+              <Icon href={homePagina.linkedin} src={homePagina.linkedinLogo.url} alt={homePagina.linkedinLogo.alt} />
+            </div>
           </div> 
         </section>
       </ReactPageScroller>

@@ -10,9 +10,32 @@ query MyQuery {
     infoTekst {
       value
     }
-    telefoonNummer
-    naam
+    titel
+    adres {
+      value
+    }
     email
+    facebook
+    facebookLogo {
+      url
+      alt
+      height
+      width
+    }
+    instagram
+    instagramLogo {
+      url
+      alt
+      height
+      width
+    }
+    linkedin
+    linkedinLogo {
+      url
+      alt
+      height
+      width
+    }
   }
 }
 `;

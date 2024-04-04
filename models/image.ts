@@ -1,4 +1,4 @@
-export interface Achtergrond {
+export interface Image {
     url: string,
     alt: string,
     height: number,
