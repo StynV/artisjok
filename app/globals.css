@@ -31,3 +31,25 @@ body {
     text-wrap: balance;
   }
 }
+
+.flipper {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flipper:hover {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  transform: rotateY(180deg);
+}

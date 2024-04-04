@@ -3,23 +3,16 @@ import { HomePagina } from '@/models/homePagina';
 import ReactPageScroller from 'react-page-scroller';
 import { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
-import Image from 'next/image';
 import IAM from '../Pages/IAM';
 import { Feedback } from '@/models/feedback';
 import { useFeedbackSubmittedContext } from '@/context/feedback';
 import { performRequest } from '@/datocms/performRequest';
+import { AllKalenders } from '@/models/allKalenders';
+import { FEEDBACK_QUERY } from '@/datocms/queries';
+import KalenderItem from '../KalenderItem/KalenderItem';
+import HomePage from '../Pages/HomePage';
 
-const FEEDBACK_QUERY = `
-query MyQuery {
-  allFeedbacks(first: 4) {
-    naam
-    opmerking
-    id
-  }
-}
-`
-
-const Page = ({ homePagina }: { homePagina: HomePagina }) => {
+const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalenders: AllKalenders[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
 
   const handleSectionChange = (number: number) => {
@@ -35,7 +28,7 @@ const Page = ({ homePagina }: { homePagina: HomePagina }) => {
   
   useEffect(() => {
     async function fetchFeedbacks() {
-      const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({query: FEEDBACK_QUERY})
+      const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({ query: FEEDBACK_QUERY })
       setAllFeedbacks(allFeedbacks)
     }
 
@@ -48,7 +41,6 @@ const Page = ({ homePagina }: { homePagina: HomePagina }) => {
       error(...args);
   };
 
-  const text = 'md:pl-40 pl-10 text-xl text-black min-h-screen flex flex-col justify-center pr-10 md:w-1/2'
   const section = 'bg-white min-h-screen'
 
   return (
@@ -59,17 +51,7 @@ const Page = ({ homePagina }: { homePagina: HomePagina }) => {
         customPageNumber={currentPageNumber}
         pageOnChange={handleSectionChange}
       >
-        <header
-          className={`${section} flex justify-center items-center`}
-        >
-          <Image
-            src={homePagina.logo.url}
-            alt={homePagina.logo.alt}
-            height={homePagina.logo.height}
-            width={homePagina.logo.width}
-            priority
-          />
-        </header>
+        <HomePage section={section} homePagina={homePagina} />
 
         <section
           className={section}
@@ -78,9 +60,11 @@ const Page = ({ homePagina }: { homePagina: HomePagina }) => {
         </section>
 
         <section
-          className={section}
+          className={`${section} grid grid-cols-5 grid-rows-4 gap-5 h-screen pt-40 lg:pr-40 pr-10 lg:pb-40 pb-20 lg:pl-40 pl-10`}
         >
-          <p className={text}>kalenderpagina</p>
+          {allKalenders.map(kalenderItem => (
+            <KalenderItem kalenderItem={kalenderItem} key={kalenderItem.id} />
+          ))}
         </section>
 
         <section
