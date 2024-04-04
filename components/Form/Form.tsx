@@ -42,7 +42,7 @@ const Form = () => {
         >
             <div className="flex flex-col">
                 <label className="mb-2 flex flex-row">
-                    <p>Naam</p>
+                    <p className="text-black">Naam</p>
                     <p className="text-red-600">*</p>
                 </label>
                 <input
@@ -57,7 +57,7 @@ const Form = () => {
             
             <div className="flex flex-col">
                 <label className="mb-2 flex flex-row">
-                    <p>Opmerking</p>
+                    <p className="text-black">Opmerking</p>
                     <p className="text-red-600">*</p>
                 </label>
                 <textarea
@@ -65,13 +65,13 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.opmerking}
                     required
-                    className="border border-slate-300 mb-2 rounded-md p-2"
+                    className="border border-slate-300 mb-2 rounded-md p-2 text-black"
                 />
             </div>
 
             <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 w-full rounded-md"
+                className="bg-blue-500 text-white py-2 w-full rounded-md text-black"
             >
                 Verzend
             </button>
