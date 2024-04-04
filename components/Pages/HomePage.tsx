@@ -6,11 +6,11 @@ const HomePage = ({ section, homePagina }: { section: string, homePagina: HomePa
         className={`${section} flex justify-center items-center`}
     >
         <Image
-        src={homePagina.logo.url}
-        alt={homePagina.logo.alt}
-        height={homePagina.logo.height}
-        width={homePagina.logo.width}
-        priority
+            src={homePagina.logo.url}
+            alt={homePagina.logo.alt}
+            height={homePagina.logo.height}
+            width={homePagina.logo.width}
+            priority
         />
   </header>
 )

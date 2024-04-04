@@ -11,6 +11,7 @@ import { AllKalenders } from '@/models/allKalenders';
 import { FEEDBACK_QUERY } from '@/datocms/queries';
 import KalenderItem from '../KalenderItem/KalenderItem';
 import HomePage from '../Pages/HomePage';
+import Image from 'next/image';
 
 const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalenders: AllKalenders[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
@@ -68,11 +69,23 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
         </section>
 
         <section
-          className={`flex flex-col text-center text-xl ${section}`}
+          className={`flex flex-col items-center text-xl ${section} md:pt-40`}
         >
-          <p className='pt-20 text-xl text-black'>{homePagina.naam}</p>
-          <p className='text-xl text-black'>{homePagina.email}</p>
-          <p className='text-xl text-black'>{homePagina.telefoonNummer}</p>            
+          <Image
+            src={homePagina.logo.url}
+            alt={homePagina.logo.alt}
+            height={homePagina.logo.height}
+            width={homePagina.logo.width}
+            priority
+          />
+          <div className='flex flex-row'>
+            <div>
+              <p className='pt-20 text-xl text-black'>{homePagina.naam}</p>
+              <p className='text-xl text-black'>{homePagina.email}</p>
+              <p className='text-xl text-black'>{homePagina.telefoonNummer}</p>
+            </div>
+            <p>icons</p>  
+          </div> 
         </section>
       </ReactPageScroller>
     </>
