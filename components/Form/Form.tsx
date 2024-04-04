@@ -51,7 +51,7 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.naam}
                     required
-                    className="border border-slate-300 mb-2 rounded-md p-2"
+                    className="border border-slate-300 mb-2 rounded-md p-2 text-black"
                 />
             </div>
             
@@ -71,7 +71,7 @@ const Form = () => {
 
             <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 w-full rounded-md text-black"
+                className="bg-blue-500 text-white py-2 w-full rounded-md"
             >
                 Verzend
             </button>
