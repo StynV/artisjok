@@ -22,7 +22,7 @@ const KalenderItem = ({ kalenderItem }: { kalenderItem: AllKalenders }) => (
           </div>
         </div>
         <div className='back absolute inset-0 flex items-center justify-center'>
-          <p>test</p>
+          <p className="text-black">test</p>
         </div>
     </Link>
 )

@@ -12,7 +12,7 @@ const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedba
         <section className='min-h-screen flex md:flex-row flex-col items-center justify-center md:pl-40 md:pr-40'>
             <section className='md:flex-1'>
                 <article className='mb-4'>
-                    {nodes?.map(node => <YGWYS className='text-black' key={getUniqueId()} html={node.outerHTML} />)}
+                    {nodes?.map(node => <YGWYS key={getUniqueId()} html={node.outerHTML} />)}
                 </article>
                 <article className='md:mt-10'>
                     <Form />
