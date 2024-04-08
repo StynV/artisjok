@@ -90,7 +90,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                         ))}
                     </div>
                 </div>
-                <div className='flex justify-end md:pr-96 pr-4 md:mr-10'>
+                <div className='flex justify-end pr-4 xl:pr-96 xl:mr-10'>
                     <button
                         className={`${btnStyling} mr-2 ${scrollAtStart && 'border-gray-200 text-gray-200'}`}
                         onClick={handleBackClick}
