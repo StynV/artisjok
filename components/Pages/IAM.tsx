@@ -107,19 +107,19 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                     </button>
                 </div>
             </section>
-            <section className='flex md:flex-row flex-col items-center justify-center'>
+            <section className='flex md:flex-row flex-col items-center justify-center md:ml-96 md:pl-10'>
                 <section className='md:flex-1'>
-                    <article className='md:mt-10'>
+                    <article>
                         <Form />
                     </article>
                 </section>
-                <section className='md:flex-1'>
+                <section className='md:flex-1 grid grid-cols-2 gap-10'>
                     {allFeedbacks.map(feedback => 
                         <div
-                            className='bg-blue-200 md:mb-10 rounded-md md:p-4'
+                            className='mb-4 border-b-2 w-6/12'
                             key={feedback.id}
                         >
-                            <p className='text-xl'>{feedback.naam}</p>
+                            <p className='font-bold'>{feedback.naam}</p>
                             <p>{feedback.opmerking}</p>
                         </div>
                     )}
