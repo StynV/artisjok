@@ -66,7 +66,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
     const btnStyling = 'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
     return (
-        <section className='min-h-screen md:pt-40 pt-24 md:pl-40 pl-10 md:pr-40 pr-10'>
+        <section className='min-h-screen pt-40 md:pl-40 pl-10 md:pr-40 pr-10'>
             <section className='mb-4'>
                 <h1 className='md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-4 text-black'>{title}</h1>
                 <div className='wrapper flex justify-center md:mb-2'>
@@ -96,14 +96,14 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                         onClick={handleBackClick}
                         disabled={scrollAtStart}
                     >
-                        {`<`}
+                        <p className='text-black'>{`<`}</p>
                     </button>
                     <button
                         className={`${btnStyling} ${scrollAtEnd && 'border-gray-200 text-gray-200'}`}
                         onClick={handleNextClick}
                         disabled={scrollAtEnd}
                     >
-                        {`>`}
+                        <p className='text-black'>{`>`}</p>
                     </button>
                 </div>
             </section>
