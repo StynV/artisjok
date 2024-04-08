@@ -1,19 +1,34 @@
-import YGWYS from '@/components/YGWYS/YGWYS';
-import getUniqueId from '@/helpers/getUniqueId';
-import { render as dastRender } from 'datocms-structured-text-to-dom-nodes';
-import { StructuredTextDocument } from 'datocms-structured-text-to-dom-nodes';
 import Form from '../Form/Form';
 import { Feedback } from '@/models/feedback';
+import { Image as ImageModel } from '@/models/image';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedbacks: Feedback[] }) => {
-    const nodes = dastRender(value)
+const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageModel[], allFeedbacks: Feedback[] }) => (
+    <section className='min-h-screen pt-40 md:pl-40 md:pr-40'>
+        <section>
+            <h1 className='text-9xl text-center mb-10'>{title}</h1>
+            <div className='wrapper flex justify-center md:mb-10'>
+                <div className='flex flex-row justify-start gap-10 overflow-x-scroll' style={{ width: `${(80 * 17) + (10 * 3)}px` }}>
+                    {covers.map((image) => (
+                        <Link key={image.id} href={image.title ?? ''}>
+                            <div className="w-80">
+                                <Image
+                                    src={image.url}
+                                    alt={image.alt}
+                                    height={image.height}
+                                    width={image.width}
+                                    priority
+                                />
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
 
-    return (
-        <section className='min-h-screen flex md:flex-row flex-col items-center justify-center md:pl-40 md:pr-40'>
+        </section>
+        <section className='flex md:flex-row flex-col items-center justify-center'>
             <section className='md:flex-1'>
-                <article className='mb-4'>
-                    {nodes?.map(node => <YGWYS key={getUniqueId()} html={node.outerHTML} />)}
-                </article>
                 <article className='md:mt-10'>
                     <Form />
                 </article>
@@ -30,7 +45,7 @@ const IAM = ({ value, allFeedbacks }: { value: StructuredTextDocument, allFeedba
                 )}
             </section>
         </section>
-    )
-}
+    </section>
+)
 
 export default IAM

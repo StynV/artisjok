@@ -7,8 +7,13 @@ query MyQuery {
       height
       width
     }
-    infoTekst {
-      value
+    iamTitel
+    covers {
+      url
+      alt
+      height
+      width
+      title
     }
     titel
     adres {

@@ -64,7 +64,7 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
         <section
           className={section}
         >
-          <IAM value={homePagina.infoTekst.value} allFeedbacks={allFeedbacks} />
+          <IAM title={homePagina.iamTitel} covers={homePagina.covers} allFeedbacks={allFeedbacks} />
         </section>
 
         <section
