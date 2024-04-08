@@ -5,14 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageModel[], allFeedbacks: Feedback[] }) => (
-    <section className='min-h-screen pt-40 md:pl-40 md:pr-40'>
-        <section>
-            <h1 className='text-9xl text-center mb-10'>{title}</h1>
+    <section className='min-h-screen md:pt-40 pt-24 md:pl-40 pl-10 md:pr-40 pr-10'>
+        <section className='mb-4'>
+            <h1 className='md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-4'>{title}</h1>
             <div className='wrapper flex justify-center md:mb-10'>
                 <div className='flex flex-row justify-start gap-10 overflow-x-scroll' style={{ width: `${(80 * 17) + (10 * 3)}px` }}>
                     {covers.map((image) => (
                         <Link key={image.id} href={image.title ?? ''}>
-                            <div className="w-80">
+                            <div className="md:w-80 lg:w-48 w-32">
                                 <Image
                                     src={image.url}
                                     alt={image.alt}
