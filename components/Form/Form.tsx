@@ -25,6 +25,9 @@ const Form = () => {
     const submitForm = async (e: any) => {
         e.preventDefault()
 
+        setShowThanks(true)
+        setInterval(() => setShowThanks(false), 5000)
+
         const response = await postFeedbackRequest(
             {
                 naam: formData.naam,
@@ -39,9 +42,6 @@ const Form = () => {
                 naam: "",
                 opmerking: ""
             })
-
-            setShowThanks(true)
-            setInterval(() => setShowThanks(false), 5000)
         }
     }
 
