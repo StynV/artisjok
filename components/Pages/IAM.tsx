@@ -92,14 +92,14 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                 </div>
                 <div className='flex justify-end pr-4 xl:pr-96 xl:mr-10'>
                     <button
-                        className={`${btnStyling} mr-2 ${scrollAtStart && 'border-gray-200 text-gray-200'}`}
+                        className={`${btnStyling} mr-2 ${scrollAtStart && 'border-gray-100 text-gray-200'}`}
                         onClick={handleBackClick}
                         disabled={scrollAtStart}
                     >
                         <p className='text-black'>{`<`}</p>
                     </button>
                     <button
-                        className={`${btnStyling} ${scrollAtEnd && 'border-gray-200 text-gray-200'}`}
+                        className={`${btnStyling} ${scrollAtEnd && 'border-gray-100 text-gray-200'}`}
                         onClick={handleNextClick}
                         disabled={scrollAtEnd}
                     >
