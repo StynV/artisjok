@@ -28,6 +28,11 @@ const Form = () => {
         setShowThanks(true)
         setInterval(() => setShowThanks(false), 5000)
 
+        setFormData({
+            naam: "",
+            opmerking: ""
+        })
+
         const response = await postFeedbackRequest(
             {
                 naam: formData.naam,
@@ -37,11 +42,6 @@ const Form = () => {
 
         if (response) {
             reSetchSubmittedFeedbacks()
-
-            setFormData({
-                naam: "",
-                opmerking: ""
-            })
         }
     }
 
