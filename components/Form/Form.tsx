@@ -3,6 +3,8 @@ import { postFeedbackRequest } from "@/datocms/postFeedbackRequest"
 import { useState } from "react"
 
 const Form = () => {
+    const [showThanks, setShowThanks] = useState(false)
+
     const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext()
 
     const [formData, setFormData] = useState({
@@ -32,6 +34,14 @@ const Form = () => {
 
         if (response) {
             reSetchSubmittedFeedbacks()
+
+            setFormData({
+                naam: "",
+                opmerking: ""
+            })
+
+            setShowThanks(true)
+            setInterval(() => setShowThanks(false), 5000)
         }
     }
 
@@ -40,7 +50,11 @@ const Form = () => {
             onSubmit={submitForm}
             className="md:mr-10 mb-10"
         >
-            <div className="flex flex-col">
+            {showThanks && <div className="bg-green-500 p-4 mb-4 text-white">
+                <p>Dankjewel voor jouw feedback.</p>
+            </div>}
+
+            <div className="flex flex-col mb-2">
                 <label className="mb-2 flex flex-row">
                     <p className="text-black">Naam</p>
                     <p className="text-red-600">*</p>
@@ -55,7 +69,7 @@ const Form = () => {
                 />
             </div>
             
-            <div className="flex flex-col">
+            <div className="flex flex-col mb-2">
                 <label className="mb-2 flex flex-row">
                     <p className="text-black">Opmerking</p>
                     <p className="text-red-600">*</p>
