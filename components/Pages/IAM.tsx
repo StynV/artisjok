@@ -69,7 +69,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
         <section className='min-h-screen pt-40 md:pl-40 pl-10 md:pr-40 pr-10'>
             <section className='mb-4'>
                 <h1 className='md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-4 text-black'>{title}</h1>
-                <div className='wrapper flex justify-center md:mb-2'>
+                <div className='wrapper flex justify-center mb-2'>
                     <div
                         className='flex flex-row justify-start gap-10 overflow-x-scroll overflow-y-hidden'
                         style={{ width: `${(80 * 17) + (10 * 3)}px` }}
@@ -116,7 +116,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                 <section className='md:flex-1'>
                     {allFeedbacks.map(feedback => 
                         <div
-                            className='bg-blue-200 md:mb-10 mb-4 rounded-md md:p-4'
+                            className='bg-blue-200 md:mb-10 rounded-md md:p-4'
                             key={feedback.id}
                         >
                             <p className='text-xl'>{feedback.naam}</p>
