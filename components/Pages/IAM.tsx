@@ -4,16 +4,24 @@ import { Image as ImageModel } from '@/models/image';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageModel[], allFeedbacks: Feedback[] }) => {
     const containerRef = useRef<HTMLDivElement>(null)
     const [scrollAtStart, setScrollAtStart] = useState(true)
+    const [scrollAtEnd, setScrollAtEnd] = useState(false)
+
+    const isMobile = useMediaQuery({ maxWidth: 768 })
 
     useEffect(() => {
         const handleScroll = () => {
             if (containerRef.current) {
                 setScrollAtStart(containerRef.current.scrollLeft === 0)
-            }            
+                setScrollAtEnd(
+                    containerRef.current.scrollLeft + containerRef.current.clientWidth ===
+                      containerRef.current.scrollWidth
+                );
+            }
         }
 
         containerRef.current?.addEventListener('scroll', handleScroll)
@@ -25,19 +33,33 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
 
     const handleBackClick = () => {
         if (containerRef.current) {
-            containerRef.current.scrollBy({
-                left: -350,
-                behavior: 'smooth'
-            })
+            if (isMobile) {
+                containerRef.current.scrollBy({
+                    left: -150,
+                    behavior: 'smooth'
+                })
+            } else {
+                containerRef.current.scrollBy({
+                    left: -350,
+                    behavior: 'smooth'
+                })
+            }
         }
     }
 
     const handleNextClick = () => {
         if (containerRef.current) {
-            containerRef.current.scrollBy({
-                left: 350,
-                behavior: 'smooth'
-            })
+            if (isMobile) {
+                containerRef.current.scrollBy({
+                    left: 150,
+                    behavior: 'smooth'
+                })
+            } else {
+                containerRef.current.scrollBy({
+                    left: 350,
+                    behavior: 'smooth'
+                })
+            }
         }
     }
 
@@ -49,12 +71,12 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                 <h1 className='md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-4 text-black'>{title}</h1>
                 <div className='wrapper flex justify-center md:mb-2'>
                     <div
-                        className='flex flex-row justify-start gap-10 overflow-x-scroll'
+                        className='flex flex-row justify-start gap-10 overflow-x-scroll overflow-y-hidden'
                         style={{ width: `${(80 * 17) + (10 * 3)}px` }}
                         ref={containerRef}
                     >
-                        {covers.map((image, ) => (
-                            <Link key={image.id} href={image.title ?? ''}>
+                        {covers.map((image, index) => (
+                            <Link key={index} href={image.title ?? ''}>
                                 <div className="lg:w-48 xl:w-80 w-32">
                                     <Image
                                         src={image.url}
@@ -77,9 +99,9 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                         {`<`}
                     </button>
                     <button
-                        className={`${btnStyling} ${!scrollAtStart && 'border-gray-200 text-gray-200'}`}
+                        className={`${btnStyling} ${scrollAtEnd && 'border-gray-200 text-gray-200'}`}
                         onClick={handleNextClick}
-                        disabled={!scrollAtStart}
+                        disabled={scrollAtEnd}
                     >
                         {`>`}
                     </button>
