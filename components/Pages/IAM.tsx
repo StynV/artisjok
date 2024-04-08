@@ -116,10 +116,10 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                 <section className='md:flex-1 grid grid-cols-2 gap-10'>
                     {allFeedbacks.map(feedback => 
                         <div
-                            className='mb-4 border-b-2 w-6/12'
+                            className='mb-4 border-b-2 w-6/12 text-black'
                             key={feedback.id}
                         >
-                            <p className='font-bold'>{feedback.naam}</p>
+                            <p className='font-bold text-black'>{feedback.naam}</p>
                             <p>{feedback.opmerking}</p>
                         </div>
                     )}
