@@ -39,7 +39,7 @@ const LikeButton = ({ likes, id }: { likes: number, id: string }) => {
             >
                 <label>{numberOfLikes}</label>
                 <svg
-                    className="w-8 h-8 text-gray-800 dark:text-white"
+                    className="w-8 h-8 text-black"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -64,7 +64,7 @@ const LikeButton = ({ likes, id }: { likes: number, id: string }) => {
             >
                 <label>{likes}</label>
                 <svg
-                    className="w-8 h-8 text-gray-800 dark:text-white"
+                    className="w-8 h-8 text-black"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
