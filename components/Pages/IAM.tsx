@@ -65,7 +65,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
         }
     }
 
-    const handleWheel = (event) => {
+    const handleWheel = (event: any) => {
         const div = containerRef.current;
     
         if (div && event.deltaX !== 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
