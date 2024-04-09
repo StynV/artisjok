@@ -68,7 +68,7 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
         </section>
 
         <section
-          className={`${section} grid grid-cols-5 grid-rows-4 gap-5 h-screen md:pt-40 lg:pr-40 pr-10 lg:pb-40 pb-20 lg:pl-40 pl-10`}
+          className={`${section} grid grid-cols-5 grid-rows-4 gap-5 h-screen pt-40 lg:pr-40 pr-10 lg:pb-40 pb-20 lg:pl-40 pl-10`}
         >
           {allKalenders.map(kalenderItem => (
             <KalenderItem kalenderItem={kalenderItem} key={kalenderItem.id} />
