@@ -77,7 +77,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                     >
                         {covers.map((image, index) => (
                             <Link key={index} href={image.title ?? ''}>
-                                <div className="lg:w-44 xl:w-80 w-32">
+                                <div className="lg:w-44 xl:w-80 w-24">
                                     <Image
                                         src={image.url}
                                         alt={image.alt}
@@ -107,16 +107,16 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                     </button>
                 </div>
             </section>
-            <section className='flex md:flex-row flex-col items-center justify-center md:ml-96 md:pl-10'>
-                <section className='md:flex-1'>
+            <section className='md:grid md:grid-cols-3 md:ml-96 md:pl-10 md:pr-96 md:mr-6'>
+                <section className='md:col-span-1'>
                     <article>
                         <Form />
                     </article>
                 </section>
-                <section className='md:flex-1 grid grid-cols-2'>
+                <section className='md:col-span-2 md:grid mdgrid-cols-2'>
                     {allFeedbacks.map(feedback => 
                         <div
-                            className='mb-4 border-b-2 w-6/12 text-black'
+                            className='flex flex-col justify-center mb-4 border-b-2 text-black mr-4'
                             key={feedback.id}
                         >
                             <p className='font-bold text-black'>{feedback.naam}</p>

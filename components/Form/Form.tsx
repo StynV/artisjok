@@ -48,7 +48,7 @@ const Form = () => {
     return (
         <form
             onSubmit={submitForm}
-            className="md:mr-10 mb-10"
+            className="md:mr-10 mb-4"
         >
             {showThanks && <div className="bg-green-500 p-4 mb-4 text-white">
                 <p>Dankjewel voor jouw feedback.</p>
@@ -79,13 +79,13 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.opmerking}
                     required
-                    className="border border-slate-300 mb-2 rounded-md p-2 text-black"
+                    className="border border-slate-300 mb-2 rounded-md md:p-2 text-black"
                 />
             </div>
 
             <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 w-full rounded-md"
+                className="bg-blue-500 text-white md:py-2 py-1 w-full rounded-md"
             >
                 Verzend
             </button>
