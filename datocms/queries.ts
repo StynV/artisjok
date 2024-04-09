@@ -67,6 +67,7 @@ query MyQuery {
     naam
     opmerking
     id
+    likes
   }
 }
 `

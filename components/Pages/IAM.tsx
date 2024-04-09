@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import LikeButton from '../LikeButton/LikeButton';
 
 const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageModel[], allFeedbacks: Feedback[] }) => {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -114,14 +115,17 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                     </article>
                 </section>
                 <section className='lg:col-span-2 lg:grid lg:grid-cols-2'>
-                    {allFeedbacks.map(feedback => 
+                    {allFeedbacks.map(feedback =>
+                    <div className='flex mr-4 items-center' key={feedback.id}>
                         <div
-                            className='flex flex-col justify-center mb-4 border-b-2 text-black mr-4'
-                            key={feedback.id}
+                            className='flex flex-col justify-center mb-4 border-b-2 text-black w-full'
                         >
                             <p className='font-bold text-black'>{feedback.naam}</p>
                             <p>{feedback.opmerking}</p>
                         </div>
+                        
+                        <LikeButton likes={feedback.likes} id={feedback.id} />
+                    </div>
                     )}
                 </section>
             </section>

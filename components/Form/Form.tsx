@@ -9,7 +9,8 @@ const Form = () => {
 
     const [formData, setFormData] = useState({
         naam: "",
-        opmerking: ""
+        opmerking: "",
+        likes: 0
     })
 
     const handleInput = (e: any) => {
@@ -30,13 +31,15 @@ const Form = () => {
 
         setFormData({
             naam: "",
-            opmerking: ""
+            opmerking: "",
+            likes: 0
         })
 
         const response = await postFeedbackRequest(
             {
                 naam: formData.naam,
-                opmerking: formData.opmerking
+                opmerking: formData.opmerking,
+                likes: formData.likes
             }
         )
 
@@ -79,7 +82,7 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.opmerking}
                     required
-                    className="border border-slate-300 mb-2 rounded-md lg:p-0 md:p-2 text-black"
+                    className="border border-slate-300 mb-2 rounded-md xl:p-2 lg:p-0 md:p-2 text-black"
                 />
             </div>
 

@@ -1,6 +1,7 @@
 type PostFeedbackRequestParams = {
   naam: string;
   opmerking: string;
+  likes: number;
 };
 
 export const postFeedbackRequest = async <T>({ naam, opmerking }: PostFeedbackRequestParams): Promise<T> => {
