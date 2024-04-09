@@ -77,7 +77,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                     >
                         {covers.map((image, index) => (
                             <Link key={index} href={image.title ?? ''}>
-                                <div className="lg:w-40 xl:w-80 w-24">
+                                <div className="lg:w-36 xl:w-80 w-24">
                                     <Image
                                         src={image.url}
                                         alt={image.alt}
