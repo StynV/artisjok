@@ -79,7 +79,7 @@ const Form = () => {
                     onChange={handleInput}
                     value={formData.opmerking}
                     required
-                    className="border border-slate-300 mb-2 rounded-md md:p-2 text-black"
+                    className="border border-slate-300 mb-2 rounded-md lg:p-0 md:p-2 text-black"
                 />
             </div>
 
