@@ -9,6 +9,7 @@ import LikeButton from '../LikeButton/LikeButton';
 
 const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageModel[], allFeedbacks: Feedback[] }) => {
     const containerRef = useRef<HTMLDivElement>(null)
+    
     const [scrollAtStart, setScrollAtStart] = useState(true)
     const [scrollAtEnd, setScrollAtEnd] = useState(false)
 
@@ -64,6 +65,14 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
         }
     }
 
+    const handleWheel = (event) => {
+        const div = containerRef.current;
+    
+        if (div && event.deltaX !== 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+          event.stopPropagation();
+        }
+      };
+    
     const btnStyling = 'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
     return (
@@ -75,6 +84,7 @@ const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageMode
                         className='flex flex-row justify-start gap-10 overflow-x-scroll overflow-y-hidden'
                         style={{ width: `${(80 * 17) + (10 * 3)}px` }}
                         ref={containerRef}
+                        onWheel={handleWheel}
                     >
                         {covers.map((image, index) => (
                             <Link key={index} href={image.title ?? ''}>
