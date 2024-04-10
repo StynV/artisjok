@@ -15,11 +15,17 @@ import Image from 'next/image';
 import YGWYS from '../YGWYS/YGWYS';
 import { render as dastRender } from 'datocms-structured-text-to-dom-nodes';
 import getUniqueId from '@/helpers/getUniqueId';
-import Link from 'next/link';
 import Icon from '../Icon/Icon';
+import getEmptyKalender from '@/helpers/getEmptyKalender';
+import shuffleArray from '@/helpers/shuffleArray';
 
 const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalenders: AllKalenders[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
+  const [kalenders, setKalenders] = useState(() => {
+    const randomSpots = new Array(6).fill(null).map(getEmptyKalender)
+    const combined = allKalenders.concat(randomSpots);
+    return shuffleArray(combined);
+  })
 
   const handleSectionChange = (number: number) => {
     setCurrentPageNumber(number)
@@ -31,7 +37,7 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
 
   const [allFeedbacks, setAllFeedbacks] = useState<Feedback[]>([])
   const { feedbackSubmitted } = useFeedbackSubmittedContext()
-  
+
   useEffect(() => {
     async function fetchFeedbacks() {
       const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({ query: FEEDBACK_QUERY })
@@ -68,10 +74,10 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
         </section>
 
         <section
-          className={`${section} grid grid-cols-5 grid-rows-4 gap-5 h-screen pt-40 lg:pr-40 pr-10 lg:pb-40 pb-20 lg:pl-40 pl-10`}
+          className={`${section} grid grid-cols-4 grid-rows-3 gap-5 h-screen pt-40 lg:pr-40 pr-10 lg:pb-40 pb-20 lg:pl-40 pl-10`}
         >
-          {allKalenders.map(kalenderItem => (
-            <KalenderItem kalenderItem={kalenderItem} key={kalenderItem.id} />
+          {kalenders.map((kalenderItem, index) => (
+            <KalenderItem kalenderItem={kalenderItem} key={index} />
           ))}
         </section>
 
