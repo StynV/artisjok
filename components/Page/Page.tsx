@@ -82,7 +82,7 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
         </section>
 
         <section
-          className={`flex flex-col items-center text-xl ${section} pt-40`}
+          className={`flex flex-col items-center justify-center text-xl ${section} lg:pr-40 pr-10 lg:pl-40 pl-10`}
         >
           <Image
             src={homePagina.logo.url}
@@ -91,18 +91,16 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
             width={homePagina.logo.width}
             priority
           />
-          <div className='flex md:flex-row flex-col w-full lg:pr-40 pr-10 lg:pl-40 pl-10'>
-            <div className='md:flex-1 flex flex-col items-center'>
-              <p className='pt-20 text-xl text-black'>{homePagina.titel}</p>
-              {nodes?.map(node => <YGWYS className='text-xl text-black' key={getUniqueId()} html={node.outerHTML} />)}
-              <p className='text-xl text-black'>{homePagina.email}</p>
-            </div>
-            <div className='md:flex-1 flex flex-row gap-5 items-center pt-10'>
-              <Icon href={homePagina.facebook} src={homePagina.facebookLogo.url} alt={homePagina.facebookLogo.alt} />
-              <Icon href={homePagina.instagram} src={homePagina.instagramLogo.url} alt={homePagina.instagramLogo.alt} />
-              <Icon href={homePagina.linkedin} src={homePagina.linkedinLogo.url} alt={homePagina.linkedinLogo.alt} />
-            </div>
-          </div> 
+          <div className='flex flex-row gap-5 items-center'>
+            <Icon href={homePagina.facebook} src={homePagina.facebookLogo.url} alt={homePagina.facebookLogo.alt} />
+            <Icon href={homePagina.instagram} src={homePagina.instagramLogo.url} alt={homePagina.instagramLogo.alt} />
+            <Icon href={homePagina.linkedin} src={homePagina.linkedinLogo.url} alt={homePagina.linkedinLogo.alt} />
+          </div>
+          <div className='flex flex-col items-center pt-10'>
+            <p className='text-xl text-black'>{homePagina.email}</p>
+            <p className='text-xl text-black'>{homePagina.titel}</p>
+            {nodes?.map(node => <YGWYS className='text-xl text-black' key={getUniqueId()} html={node.outerHTML} />)}
+          </div>
         </section>
       </ReactPageScroller>
     </>

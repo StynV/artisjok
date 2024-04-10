@@ -15,11 +15,16 @@ query MyQuery {
       width
       title
     }
-    titel
+    iamLogo {
+      url
+      alt
+      height
+      width      
+    }
+    email
     adres {
       value
     }
-    email
     facebook
     facebookLogo {
       url

@@ -6,8 +6,9 @@ const Icon = ({ href, src, alt }: { href: string, src: string, alt: string }) =>
         <Image
             src={src}
             alt={alt}
-            height={200}
-            width={200}
+            height={100}
+            width={100}
+            className="grayscale"
         />
   </Link>
 )
