@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import { performRequest } from "@/datocms/performRequest";
 import { Layout } from "@/models/layout";
 import "./globals.css";
-import { FeedbackSubmittedProvider } from "@/context/feedback";
 import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });

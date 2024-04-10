@@ -1,4 +1,3 @@
-import { StructuredTextDocument } from 'datocms-structured-text-to-dom-nodes';
 import { Image } from './image';
 
 export interface HomePagina {
@@ -6,10 +5,11 @@ export interface HomePagina {
     iamTitel: string,
     covers: Image[],
     titel: string,
-    adres: {
-        value: StructuredTextDocument
-    },
     email: string,
+    straat: string,
+    huisnummer: number,
+    gemeente: string,
+    postcode: number,
     facebook: string,
     facebookLogo: Image,
     instagram: string,

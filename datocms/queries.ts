@@ -19,12 +19,13 @@ query MyQuery {
       url
       alt
       height
-      width      
+      width
     }
     email
-    adres {
-      value
-    }
+    straat
+    huisnummer
+    gemeente
+    postcode
     facebook
     facebookLogo {
       url

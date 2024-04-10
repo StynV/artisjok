@@ -12,12 +12,10 @@ import { FEEDBACK_QUERY } from '@/datocms/queries';
 import KalenderItem from '../KalenderItem/KalenderItem';
 import HomePage from '../Pages/HomePage';
 import Image from 'next/image';
-import YGWYS from '../YGWYS/YGWYS';
-import { render as dastRender } from 'datocms-structured-text-to-dom-nodes';
-import getUniqueId from '@/helpers/getUniqueId';
 import Icon from '../Icon/Icon';
 import getEmptyKalender from '@/helpers/getEmptyKalender';
 import shuffleArray from '@/helpers/shuffleArray';
+import Link from 'next/link';
 
 const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalenders: AllKalenders[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
@@ -54,8 +52,6 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
   };
 
   const section = 'bg-white min-h-screen'
-
-  const nodes = dastRender(homePagina.adres.value)
 
   return (
     <>
@@ -97,9 +93,20 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
             <Icon href={homePagina.linkedin} src={homePagina.linkedinLogo.url} alt={homePagina.linkedinLogo.alt} />
           </div>
           <div className='flex flex-col items-center pt-10'>
-            <p className='text-xl text-black'>{homePagina.email}</p>
-            <p className='text-xl text-black'>{homePagina.titel}</p>
-            {nodes?.map(node => <YGWYS className='text-xl text-black' key={getUniqueId()} html={node.outerHTML} />)}
+            <Link
+              href={`mailto:${homePagina.email}`}
+              className='text-xl text-black'
+            >
+              {homePagina.email}
+            </Link>
+            <Link
+              className='text-center text-xl text-black'
+              href={`http://maps.google.com/maps?q=${homePagina.straat}+${homePagina.huisnummer}+${homePagina.postcode}+${homePagina.gemeente}`}
+              target='_blank'
+            >
+              <p>{homePagina.straat} {homePagina.huisnummer}</p>
+              <p>{homePagina.gemeente} {homePagina.postcode}</p>
+            </Link>
           </div>
         </section>
       </ReactPageScroller>
