@@ -4,6 +4,7 @@ export interface HomePagina {
     logo: Image,
     iamTitel: string,
     covers: Image[],
+    iamLogo: Image,
     titel: string,
     email: string,
     straat: string,
