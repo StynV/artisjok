@@ -1,6 +1,7 @@
 import { useFeedbackSubmittedContext } from "@/context/feedback"
 import { postFeedbackRequest } from "@/datocms/postFeedbackRequest"
 import { useState } from "react"
+import emailjs from 'emailjs-com';
 
 const Form = () => {
     const [showThanks, setShowThanks] = useState(false)
@@ -45,6 +46,15 @@ const Form = () => {
 
         if (response) {
             reSetchSubmittedFeedbacks()
+
+            const templateParams  = {
+                to_name: 'styn.vercauteren@outlook.com',
+                from_name: 'styneman@gmail.com',
+                form_name: formData.naam,
+                message: formData.opmerking
+            }
+            
+            emailjs.send('service_ux0vih8', 'template_ppfwqkl', templateParams, 'yZ0JwXzFm2XsODp6Q')
         }
     }
 
