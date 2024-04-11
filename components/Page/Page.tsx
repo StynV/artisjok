@@ -14,6 +14,7 @@ import HomePage from '../Pages/HomePage';
 import getEmptyKalender from '@/helpers/getEmptyKalender';
 import shuffleArray from '@/helpers/shuffleArray';
 import Contact from '../Pages/Contact';
+import CookieBar from '../CookieBar/CookieBar';
 
 const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalenders: AllKalenders[] }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0)
@@ -54,6 +55,8 @@ const Page = ({ homePagina, allKalenders }: { homePagina: HomePagina, allKalende
   return (
     <>
       <NavBar handleNavBarClick={handleNavBarClick} />
+
+      <CookieBar />
 
       <ReactPageScroller
         customPageNumber={currentPageNumber}
