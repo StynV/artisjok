@@ -4,6 +4,8 @@ import { performRequest } from "@/datocms/performRequest";
 import { Layout } from "@/models/layout";
 import "./globals.css";
 import { Providers } from "./providers";
+import NavBar from "@/components/NavBar/NavBar";
+import CookieBar from "@/components/CookieBar/CookieBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,7 +38,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          {children}
+          <>
+            <NavBar />
+            {children}
+            <CookieBar />
+          </>
         </Providers>
       </body>
     </html>

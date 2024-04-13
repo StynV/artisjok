@@ -1,3 +1,5 @@
+'use client'
+
 import Form from '../Form/Form';
 import { Feedback } from '@/models/feedback';
 import { Image as ImageModel } from '@/models/image';
@@ -6,14 +8,29 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import LikeButton from '../LikeButton/LikeButton';
+import { useFeedbackSubmittedContext } from '@/context/feedback';
+import { performRequest } from '@/datocms/performRequest';
+import { FEEDBACK_QUERY } from '@/datocms/queries';
 
-const IAM = ({ title, covers, allFeedbacks }: { title: string, covers: ImageModel[], allFeedbacks: Feedback[] }) => {
+const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
     const containerRef = useRef<HTMLDivElement>(null)
     
     const [scrollAtStart, setScrollAtStart] = useState(true)
     const [scrollAtEnd, setScrollAtEnd] = useState(false)
 
     const isMobile = useMediaQuery({ maxWidth: 768 })
+
+    const [allFeedbacks, setAllFeedbacks] = useState<Feedback[]>([])
+    const { feedbackSubmitted } = useFeedbackSubmittedContext()
+
+    useEffect(() => {
+        async function fetchFeedbacks() {
+        const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({ query: FEEDBACK_QUERY })
+        setAllFeedbacks(allFeedbacks)
+        }
+
+        fetchFeedbacks()
+    }, [feedbackSubmitted])
 
     useEffect(() => {
         const handleScroll = () => {
