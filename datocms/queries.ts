@@ -69,7 +69,7 @@ query MyQuery {
 
 export const FEEDBACK_QUERY = `
 query MyQuery {
-  allFeedbacks(first: 4) {
+  allFeedbacks {
     naam
     opmerking
     id

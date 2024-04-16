@@ -93,7 +93,7 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
     const btnStyling = 'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
     return (
-        <section className='min-h-screen bg-white pt-40 md:pl-40 pl-10 md:pr-40 pr-10'>
+        <section className='min-h-screen bg-white pt-28 md:pl-40 pl-10 md:pr-40 pr-10 pb-28'>
             <section className='mb-4'>
                 <h1 className='md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-4 text-black'>{title}</h1>
                 <div className='wrapper flex justify-center mb-2'>
@@ -118,7 +118,7 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
                         ))}
                     </div>
                 </div>
-                <div className='flex justify-end pr-4 xl:pr-96 xl:mr-10'>
+                <div className='flex justify-end pr-4'>
                     <button
                         className={`${btnStyling} mr-2 ${scrollAtStart && 'border-gray-100 text-gray-200'}`}
                         onClick={handleBackClick}
@@ -135,13 +135,13 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
                     </button>
                 </div>
             </section>
-            <section className='lg:grid lg:grid-cols-3 xl:ml-96 xl:pl-10 xl:pr-96 xl:mr-6'>
+            <section className='lg:grid lg:grid-cols-3 xl:ml-40 xl:pr-40'>
                 <section className='lg:col-span-1'>
                     <article>
                         <Form />
                     </article>
                 </section>
-                <section className='lg:col-span-2 lg:grid lg:grid-cols-2'>
+                <section className='lg:col-span-2 lg:grid lg:grid-cols-2 overflow-y-scroll h-60'>
                     {allFeedbacks.map(feedback =>
                         <div className='flex mr-4 items-center' key={feedback.id}>
                             <div
