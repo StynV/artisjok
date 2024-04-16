@@ -48,8 +48,8 @@ const Form = () => {
             reSetchSubmittedFeedbacks()
 
             const templateParams = {
-                to_name: 'styn.vercauteren@outlook.com',
-                from_name: 'styneman@gmail.com',
+                to_name: 'independentartmagazine@gmail.com',
+                from_name: 'independentartmagazine@gmail.com',
                 form_name: formData.naam,
                 message: formData.opmerking
             }
