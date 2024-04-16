@@ -59,7 +59,7 @@ const LikeButton = ({ likes, id }: { likes: number, id: string }) => {
     } else {
         return (
             <button
-                className='flex items-end text-black'
+                className='flex items-end text-black pl-1'
                 onClick={handleLike}
             >
                 <label>{likes}</label>

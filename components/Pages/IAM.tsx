@@ -145,9 +145,9 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
                     {allFeedbacks.map(feedback =>
                         <div className='flex mr-4 items-center' key={feedback.id}>
                             <div
-                                className='flex flex-col justify-center mb-4 border-b-2 text-black w-full'
+                                className='flex flex-row mb-4 border-b-2 text-black w-full'
                             >
-                                <p className='font-bold text-black'>{feedback.naam}</p>
+                                <p className='font-bold text-black min-w-24'>{feedback.naam}</p>
                                 <p>{feedback.opmerking}</p>
                             </div>
 
