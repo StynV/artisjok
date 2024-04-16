@@ -47,13 +47,13 @@ const Form = () => {
         if (response) {
             reSetchSubmittedFeedbacks()
 
-            const templateParams  = {
+            const templateParams = {
                 to_name: 'styn.vercauteren@outlook.com',
                 from_name: 'styneman@gmail.com',
                 form_name: formData.naam,
                 message: formData.opmerking
             }
-            
+
             emailjs.send('service_ux0vih8', 'template_ppfwqkl', templateParams, 'yZ0JwXzFm2XsODp6Q')
         }
     }
@@ -81,7 +81,7 @@ const Form = () => {
                     className="border border-slate-300 mb-2 rounded-md p-2 text-black"
                 />
             </div>
-            
+
             <div className="flex flex-col mb-2">
                 <label className="mb-2 flex flex-row">
                     <p className="text-black">Opmerking</p>

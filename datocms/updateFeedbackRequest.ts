@@ -1,6 +1,6 @@
 type PostFeedbackRequestParams = {
-    likes: number;
-    id: string;
+  likes: number;
+  id: string;
 };
 
 interface FeedbackResponse {
@@ -13,14 +13,14 @@ export const updateFeedbackRequest = async <T>({ likes, id }: PostFeedbackReques
       'Content-Type': 'application/json',
     },
     method: "PUT",
-    body: JSON.stringify({likes: likes, id: id}),
+    body: JSON.stringify({ likes: likes, id: id }),
   });
-      
+
   const responseBody = await response.json();
-  
+
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText}: ${JSON.stringify(responseBody)}`);
   }
-      
+
   return responseBody;
 }

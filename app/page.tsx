@@ -9,15 +9,15 @@ export default async function Home() {
   return (
     <main>
       <header
-          className={'bg-white min-h-screen flex justify-center items-center'}
+        className={'bg-white min-h-screen flex justify-center items-center'}
       >
-          <Image
-              src={homePagina.logo.url}
-              alt={homePagina.logo.alt}
-              height={homePagina.logo.height}
-              width={homePagina.logo.width}
-              priority
-          />
+        <Image
+          src={homePagina.logo.url}
+          alt={homePagina.logo.alt}
+          height={homePagina.logo.height}
+          width={homePagina.logo.width}
+          priority
+        />
       </header>
     </main>
   );

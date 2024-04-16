@@ -22,7 +22,7 @@ query MyQuery {
 `;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { data: { homePagina } } = await performRequest<{ data: { homePagina: Layout } }>({query: PAGE_CONTENT_QUERY})
+  const { data: { homePagina } } = await performRequest<{ data: { homePagina: Layout } }>({ query: PAGE_CONTENT_QUERY })
   return {
     title: homePagina._seoMetaTags.find(metaTag => metaTag.attributes?.property === 'og:site_name')?.attributes?.content,
     description: homePagina._seoMetaTags.find(metaTag => metaTag.attributes?.name === 'description')?.attributes?.content

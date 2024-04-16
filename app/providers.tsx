@@ -1,7 +1,7 @@
 'use client'
 import { FeedbackSubmittedProvider } from "@/context/feedback";
 
-export function Providers({children}: any) {
+export function Providers({ children }: any) {
     return (
         <FeedbackSubmittedProvider>
             {children}

@@ -16,7 +16,7 @@ const NavBar = () => (
                 <Link href='/contact'>Contact</Link>
             </li>
         </ul>
-  </nav>
+    </nav>
 )
 
 export default NavBar

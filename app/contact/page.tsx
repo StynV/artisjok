@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default async function Contact() {
     const { data: { homePagina } } = await performRequest<{ data: { homePagina: HomePagina } }>({ query: PAGE_CONTENT_QUERY })
-    
+
     return (
         <section
             className={'flex flex-col items-center justify-center text-xl bg-white min-h-screen lg:pr-40 pr-10 lg:pl-40 pl-10'}

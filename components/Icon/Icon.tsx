@@ -10,7 +10,7 @@ const Icon = ({ href, src, alt }: { href: string, src: string, alt: string }) =>
             width={100}
             className="grayscale"
         />
-  </Link>
+    </Link>
 )
 
 export default Icon

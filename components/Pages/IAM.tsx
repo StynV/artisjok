@@ -14,7 +14,7 @@ import { FEEDBACK_QUERY } from '@/datocms/queries';
 
 const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
     const containerRef = useRef<HTMLDivElement>(null)
-    
+
     const [scrollAtStart, setScrollAtStart] = useState(true)
     const [scrollAtEnd, setScrollAtEnd] = useState(false)
 
@@ -25,8 +25,8 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
 
     useEffect(() => {
         async function fetchFeedbacks() {
-        const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({ query: FEEDBACK_QUERY })
-        setAllFeedbacks(allFeedbacks)
+            const { data: { allFeedbacks } } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({ query: FEEDBACK_QUERY })
+            setAllFeedbacks(allFeedbacks)
         }
 
         fetchFeedbacks()
@@ -38,7 +38,7 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
                 setScrollAtStart(containerRef.current.scrollLeft === 0)
                 setScrollAtEnd(
                     containerRef.current.scrollLeft + containerRef.current.clientWidth ===
-                      containerRef.current.scrollWidth
+                    containerRef.current.scrollWidth
                 );
             }
         }
@@ -84,12 +84,12 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
 
     const handleWheel = (event: any) => {
         const div = containerRef.current;
-    
+
         if (div && event.deltaX !== 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-          event.stopPropagation();
+            event.stopPropagation();
         }
-      };
-    
+    };
+
     const btnStyling = 'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
     return (
@@ -143,16 +143,16 @@ const IAM = ({ title, covers }: { title: string, covers: ImageModel[] }) => {
                 </section>
                 <section className='lg:col-span-2 lg:grid lg:grid-cols-2'>
                     {allFeedbacks.map(feedback =>
-                    <div className='flex mr-4 items-center' key={feedback.id}>
-                        <div
-                            className='flex flex-col justify-center mb-4 border-b-2 text-black w-full'
-                        >
-                            <p className='font-bold text-black'>{feedback.naam}</p>
-                            <p>{feedback.opmerking}</p>
+                        <div className='flex mr-4 items-center' key={feedback.id}>
+                            <div
+                                className='flex flex-col justify-center mb-4 border-b-2 text-black w-full'
+                            >
+                                <p className='font-bold text-black'>{feedback.naam}</p>
+                                <p>{feedback.opmerking}</p>
+                            </div>
+
+                            <LikeButton likes={feedback.likes} id={feedback.id} />
                         </div>
-                        
-                        <LikeButton likes={feedback.likes} id={feedback.id} />
-                    </div>
                     )}
                 </section>
             </section>
