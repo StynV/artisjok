@@ -33,14 +33,12 @@ export default async function Contact() {
                 >
                     {homePagina.email}
                 </Link>
-                <Link
+                <div
                     className='text-center text-xl text-black'
-                    href={`http://maps.google.com/maps?q=${homePagina.straat}+${homePagina.huisnummer}+${homePagina.postcode}+${homePagina.gemeente}`}
-                    target='_blank'
                 >
                     <p>{homePagina.straat} {homePagina.huisnummer}</p>
                     <p>{homePagina.gemeente} {homePagina.postcode}</p>
-                </Link>
+                </div>
             </div>
         </section>
     )
