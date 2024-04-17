@@ -38,11 +38,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <>
-            <NavBar />
-            {children}
-            <CookieBar />
-          </>
+          <NavBar />
+          {children}
+          <CookieBar />
         </Providers>
       </body>
     </html>

@@ -41,7 +41,7 @@ const KalenderItem = ({ kalenderItem }: { kalenderItem: AllKalenders | undefined
       <div className={`flipper ${getRandomColor()}`}>
         <div className='front'></div>
         <div className='back absolute inset-0 flex items-center justify-center bg-white'>
-          <p className="text-black text-xl">Contacteer ons als u hier bij wilt staan.</p>
+          <p className="text-black text-xl">Uw galerij hier.</p>
         </div>
       </div>
     )
