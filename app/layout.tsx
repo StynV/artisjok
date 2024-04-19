@@ -6,6 +6,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import NavBar from "@/components/NavBar/NavBar";
 import CookieBar from "@/components/CookieBar/CookieBar";
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function RootLayout({
           <CookieBar />
         </Providers>
       </body>
+      <GoogleTagManager gtmId="GTM-TQFMR3BD" />
     </html>
   );
 }
