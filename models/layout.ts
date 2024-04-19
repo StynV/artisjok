@@ -11,5 +11,6 @@ export interface MetaTag {
 }
 
 export interface Layout {
-    "_seoMetaTags": MetaTag[]
+    "_seoMetaTags": MetaTag[],
+    keywords: string
 }
