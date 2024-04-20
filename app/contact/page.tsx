@@ -1,13 +1,13 @@
 import Footer from "@/components/Footer/Footer";
 import Icon from "@/components/Icon/Icon";
 import { performRequest } from "@/datocms/performRequest";
-import { PAGE_CONTENT_QUERY } from "@/datocms/queries";
+import { CONTACT_PAGE_CONTENT_QUERY } from "@/datocms/queries";
 import { HomePagina } from "@/models/homePagina";
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Contact() {
-    const { data: { homePagina } } = await performRequest<{ data: { homePagina: HomePagina } }>({ query: PAGE_CONTENT_QUERY })
+    const { data: { homePagina } } = await performRequest<{ data: { homePagina: HomePagina } }>({ query: CONTACT_PAGE_CONTENT_QUERY })
 
     return (
         <>
@@ -15,11 +15,12 @@ export default async function Contact() {
                 className={'flex flex-col items-center justify-center text-xl bg-white min-h-screen lg:pr-40 pr-10 lg:pl-40 pl-10'}
             >
                 <Image
-                    src={homePagina.iamLogo.url}
-                    alt={homePagina.iamLogo.alt}
-                    height={homePagina.iamLogo.height}
-                    width={homePagina.iamLogo.width}
+                    src={homePagina.contactLogo.url}
+                    alt={homePagina.contactLogo.alt}
+                    height={homePagina.contactLogo.height}
+                    width={homePagina.contactLogo.width}
                     priority
+                    className="w-3/4"
                 />
 
                 <div className='flex flex-row gap-5 items-center'>

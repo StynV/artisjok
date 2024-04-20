@@ -7,24 +7,12 @@ import { Providers } from "./providers";
 import NavBar from "@/components/NavBar/NavBar";
 import CookieBar from "@/components/CookieBar/CookieBar";
 import { GoogleTagManager } from '@next/third-parties/google'
+import { LAYOUT_CONTENT_QUERY } from "@/datocms/queries";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const PAGE_CONTENT_QUERY = `
-query MyQuery {
-  homePagina {
-    _seoMetaTags(locale: nl) {
-      attributes
-      content
-      tag
-    },
-    keywords
-  }
-}
-`;
-
 export async function generateMetadata(): Promise<Metadata> {
-  const { data: { homePagina } } = await performRequest<{ data: { homePagina: Layout } }>({ query: PAGE_CONTENT_QUERY })
+  const { data: { homePagina } } = await performRequest<{ data: { homePagina: Layout } }>({ query: LAYOUT_CONTENT_QUERY })
 
   return {
     title: homePagina._seoMetaTags.find(metaTag => metaTag.attributes?.property === 'og:site_name')?.attributes?.content,
