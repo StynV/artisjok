@@ -1,3 +1,6 @@
+## This project is copyrighted and all rights are reserved. You are allowed to view the code for reference purposes only. Any unauthorized copying, modification, or distribution of the code is prohibited.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
