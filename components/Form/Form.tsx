@@ -52,7 +52,12 @@ const Form = () => {
         message: formData.opmerking,
       };
 
-      // emailjs.send('service_ux0vih8', 'template_ppfwqkl', templateParams, 'yZ0JwXzFm2XsODp6Q')
+      emailjs.send(
+        "service_ux0vih8",
+        "template_ppfwqkl",
+        templateParams,
+        "yZ0JwXzFm2XsODp6Q"
+      );
     }
   };
 
