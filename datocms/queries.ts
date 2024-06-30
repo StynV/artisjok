@@ -48,7 +48,7 @@ query MyQuery {
     likes
   }
 }
-`
+`;
 
 export const KALENDER_CONTENT_QUERY = `
 query MyQuery {
@@ -104,3 +104,10 @@ query MyQuery {
   }
 }
 `;
+
+export const OVER_PAGE_CONTENT_QUERY = `
+query MyQuery {
+  homePagina {
+    text
+  }
+}`;
