@@ -20,6 +20,7 @@ query MyQuery {
       height
       width
     }
+    text
   }
 }
 `;
@@ -104,10 +105,3 @@ query MyQuery {
   }
 }
 `;
-
-export const OVER_PAGE_CONTENT_QUERY = `
-query MyQuery {
-  homePagina {
-    text
-  }
-}`;
