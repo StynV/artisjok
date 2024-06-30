@@ -31,6 +31,16 @@
     margin: 1.67em 0;
   }
 
+  p,
+  span {
+    font-size: 20px !important;
+  }
+
+  p,
+  div {
+    margin-bottom: 1rem;
+  }
+
   ol {
     list-style-type: decimal;
     margin-left: 5rem;
@@ -59,5 +69,14 @@
   a {
     color: blue;
     text-decoration: underline;
+  }
+
+  img {
+    width: 1000px;
+  }
+
+  p:has(img) {
+    display: flex;
+    justify-content: center;
   }
 }
