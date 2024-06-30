@@ -11,6 +11,13 @@ const YGWYS = ({ homePagina }: { homePagina: HomePagina }) => {
       .forEach(function (div) {
         div.classList.add(styles.centeredText);
       });
+
+    const paragraphs = document.querySelectorAll("p");
+    paragraphs.forEach((p) => {
+      if (p.textContent === "Team IAM") {
+        p.classList.add(styles.teamIAM);
+      }
+    });
   }, []);
 
   return (
