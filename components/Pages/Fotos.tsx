@@ -15,11 +15,13 @@ const Fotos = ({ fotos, instagramLink }: props) => {
   const isTablet = useMediaQuery({ maxWidth: 1024 });
   return (
     <div className="flex lg:flex-row flex-col justify-center items-center gap-4">
-      {/* {isTablet ? (
-        <InstagramEmbed url={instagramLink} />
-      ) : ( */}
-      <InstagramEmbed url={instagramLink} width={600} />
-      {/* )} */}
+      {isTablet ? (
+        <div>
+          <InstagramEmbed url={instagramLink} />
+        </div>
+      ) : (
+        <InstagramEmbed url={instagramLink} width={600} />
+      )}
 
       <Carousel
         showArrows={true}
