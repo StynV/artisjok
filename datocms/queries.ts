@@ -105,3 +105,19 @@ query MyQuery {
   }
 }
 `;
+
+export const EVENT_FOTOS_CONTENT_QUERY = `
+query MyQuery {
+  allEventFotos {
+    eventTitel
+    instagramLink
+    id
+    fotos {
+      alt
+      height
+      width
+      url
+    }
+  }
+}
+`;
