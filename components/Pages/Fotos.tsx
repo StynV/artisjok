@@ -13,21 +13,14 @@ interface props {
 
 const Fotos = ({ fotos, instagramLink }: props) => {
   const isTablet = useMediaQuery({ maxWidth: 1024 });
-  return (
-    <div className="flex lg:flex-row flex-col justify-center items-center gap-4">
-      {isTablet ? (
-        <div>
-          <InstagramEmbed url={instagramLink} />
-        </div>
-      ) : (
-        <InstagramEmbed url={instagramLink} width={600} />
-      )}
 
+  const renderCarousel = () => (
       <Carousel
         showArrows={true}
         dynamicHeight
         emulateTouch
         autoPlay
+        infiniteLoop
         className="lg:w-6/12 w-full"
       >
         {fotos.map((foto) => (
@@ -36,6 +29,23 @@ const Fotos = ({ fotos, instagramLink }: props) => {
           </div>
         ))}
       </Carousel>
+  )
+
+  return (
+    <div className="flex lg:flex-row flex-col justify-center items-center gap-4">
+      {isTablet ? (
+        <>
+        {renderCarousel()}
+        <div>
+          <InstagramEmbed url={instagramLink} />
+        </div>
+        </>
+      ) : (
+        <>
+        <InstagramEmbed url={instagramLink} width={600} />
+        {renderCarousel()}
+        </>
+      )}
     </div>
   );
 };
