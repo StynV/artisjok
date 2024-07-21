@@ -13,6 +13,9 @@ const NavBar = () => (
                 <Link href='/kalenders'>Galerijen</Link>
             </li>
             <li className='py-2 px-3 text-black md:text-2xl hover:text-blue-700 cursor-pointer'>
+                <Link href='/fotos'>{`Foto's`}</Link>
+            </li>
+            <li className='py-2 px-3 text-black md:text-2xl hover:text-blue-700 cursor-pointer'>
                 <Link href='/contact'>Contact</Link>
             </li>
         </ul>
