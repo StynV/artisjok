@@ -36,14 +36,14 @@ const Fotos = ({ fotos, instagramLink }: props) => {
       {isTablet ? (
         <>
         {renderCarousel()}
-        <div>
-          <InstagramEmbed url={instagramLink} />
-        </div>
+          <div>
+            <InstagramEmbed url={instagramLink} />
+          </div>
         </>
       ) : (
         <>
-        <InstagramEmbed url={instagramLink} width={600} />
-        {renderCarousel()}
+          {renderCarousel()}
+          <InstagramEmbed url={instagramLink} width={600} />
         </>
       )}
     </div>

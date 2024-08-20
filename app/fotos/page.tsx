@@ -17,7 +17,7 @@ export default async function FotosPage() {
           className="min-h-screen bg-white pt-28 md:pl-40 pl-10 md:pr-40 pr-10 pb-28"
           key={eventFotos.id}
         >
-          <h1 className="md:text-9xl lg:text-4xl text-2xl md:mb-10 mb-6 text-black">
+          <h1 className="lg:text-4xl text-2xl md:mb-10 mb-6 text-black">
             {eventFotos.eventTitel}
           </h1>
 

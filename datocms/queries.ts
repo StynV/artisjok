@@ -117,6 +117,7 @@ query MyQuery {
       height
       width
       url
+      id
     }
   }
 }
