@@ -8,6 +8,7 @@ import NavBar from "@/components/NavBar/NavBar";
 import CookieBar from "@/components/CookieBar/CookieBar";
 import { GoogleTagManager } from '@next/third-parties/google'
 import { LAYOUT_CONTENT_QUERY } from "@/datocms/queries";
+import { ViewTransitions } from 'next-view-transitions';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <ViewTransitions>
+      <html lang="en">
       <body className={inter.className}>
         <Providers>
           <NavBar />
@@ -37,5 +39,7 @@ export default function RootLayout({
       </body>
       <GoogleTagManager gtmId="GTM-TQFMR3BD" />
     </html>
+    </ViewTransitions>
+    
   );
 }

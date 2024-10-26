@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="fixed">
       <div className="fixed bottom-0 left-0 right-0 flex md:flex-row flex-col items-center justify-between px-4 py-6 bg-gray-100">
         <div className="text-black md:text-xl flex flex-col md:flex-row items-center justify-center w-full">
-          <p className="pr-2">
+          <p>
             Copyright {currentYear} - Independent Art Magazine -
           </p>
           <Link
