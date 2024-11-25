@@ -40,6 +40,14 @@ query MyQuery {
 }
 `;
 
+export const FEEDBACK_PAGE_CONTENT_QUERY = `
+query MyQuery {
+  homePagina {
+    feedbackTitel
+  }
+}
+`;
+
 export const FEEDBACK_QUERY = `
 query MyQuery {
   allFeedbacks {

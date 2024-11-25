@@ -3,6 +3,7 @@ import { Image } from "./image";
 export interface HomePagina {
   logo: Image;
   iamTitel: string;
+  feedbackTitel: string;
   covers: Image[];
   contactLogo: Image;
   titel: string;

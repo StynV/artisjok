@@ -1,16 +1,10 @@
 "use client";
 
-import Form from "../Form/Form";
-import { Feedback } from "@/models/feedback";
 import { Image as ImageModel } from "@/models/image";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import LikeButton from "../LikeButton/LikeButton";
-import { useFeedbackSubmittedContext } from "@/context/feedback";
-import { performRequest } from "@/datocms/performRequest";
-import { FEEDBACK_QUERY } from "@/datocms/queries";
 
 const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,22 +13,6 @@ const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
   const [scrollAtEnd, setScrollAtEnd] = useState(false);
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
-
-  const [allFeedbacks, setAllFeedbacks] = useState<Feedback[]>([]);
-  const { feedbackSubmitted } = useFeedbackSubmittedContext();
-
-  useEffect(() => {
-    async function fetchFeedbacks() {
-      const {
-        data: { allFeedbacks },
-      } = await performRequest<{ data: { allFeedbacks: Feedback[] } }>({
-        query: FEEDBACK_QUERY,
-      });
-      setAllFeedbacks(allFeedbacks);
-    }
-
-    fetchFeedbacks();
-  }, [feedbackSubmitted]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,7 +80,7 @@ const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
     "p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center";
 
   return (
-    <section className="min-h-screen bg-white pt-28 md:pl-40 pl-10 md:pr-40 pr-10 pb-28">
+    <section className="min-h-screen bg-white md:pl-40 pl-10 md:pr-40 pr-10 flex flex-col justify-center">
       <section className="mb-4">
         <h1 className="md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-6 text-black">
           {title}
@@ -149,25 +127,6 @@ const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
             <p className="text-black">{`>`}</p>
           </button>
         </div>
-      </section>
-      <section className="lg:grid lg:grid-cols-5 xl:ml-40 xl:pr-40">
-        <section className="lg:col-span-2">
-          <article>
-            <Form />
-          </article>
-        </section>
-        <section className="lg:col-span-3 lg:grid overflow-y-scroll h-80">
-          {allFeedbacks.map((feedback) => (
-            <div className="flex gap-4 items-center" key={feedback.id}>
-              <div className="flex flex-row border-b-2 mb-2 pb-2 text-black w-full">
-                <p className="font-bold text-black min-w-24">{feedback.naam}</p>
-                <p>{feedback.opmerking}</p>
-              </div>
-
-              <LikeButton likes={feedback.likes} id={feedback.id} />
-            </div>
-          ))}
-        </section>
       </section>
     </section>
   );
