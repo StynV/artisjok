@@ -40,6 +40,7 @@ export default function RootLayout({
         </Providers>
       </body>
       <GoogleTagManager gtmId="GTM-TQFMR3BD" />
+      <GoogleTagManager gtmId="GTM-P8FM46Q057" />
     </html>
     </ViewTransitions>
     
