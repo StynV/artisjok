@@ -9,7 +9,7 @@ query MyQuery {
     keywords
   }
 }
-`;
+`
 
 export const HOME_PAGE_CONTENT_QUERY = `
 query MyQuery {
@@ -23,7 +23,7 @@ query MyQuery {
     text
   }
 }
-`;
+`
 
 export const IAM_PAGE_CONTENT_QUERY = `
 query MyQuery {
@@ -38,7 +38,7 @@ query MyQuery {
     }
   }
 }
-`;
+`
 
 export const FEEDBACK_PAGE_CONTENT_QUERY = `
 query MyQuery {
@@ -46,7 +46,7 @@ query MyQuery {
     feedbackTitel
   }
 }
-`;
+`
 
 export const FEEDBACK_QUERY = `
 query MyQuery {
@@ -57,7 +57,7 @@ query MyQuery {
     likes
   }
 }
-`;
+`
 
 export const KALENDER_CONTENT_QUERY = `
 query MyQuery {
@@ -73,7 +73,7 @@ query MyQuery {
     naam
   }
 }
-`;
+`
 
 export const CONTACT_PAGE_CONTENT_QUERY = `
 query MyQuery {
@@ -112,7 +112,7 @@ query MyQuery {
     }
   }
 }
-`;
+`
 
 export const EVENT_FOTOS_CONTENT_QUERY = `
 query MyQuery {
@@ -129,4 +129,4 @@ query MyQuery {
     }
   }
 }
-`;
+`

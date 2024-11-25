@@ -1,65 +1,65 @@
-import { useFeedbackSubmittedContext } from "@/context/feedback";
-import { postFeedbackRequest } from "@/datocms/postFeedbackRequest";
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import { useFeedbackSubmittedContext } from '@/context/feedback'
+import { postFeedbackRequest } from '@/datocms/postFeedbackRequest'
+import { useState } from 'react'
+import emailjs from 'emailjs-com'
 
 const Form = () => {
-  const [showThanks, setShowThanks] = useState(false);
+  const [showThanks, setShowThanks] = useState(false)
 
-  const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext();
+  const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext()
 
   const [formData, setFormData] = useState({
-    naam: "",
-    opmerking: "",
+    naam: '',
+    opmerking: '',
     likes: 0,
-  });
+  })
 
   const handleInput = (e: any) => {
-    const fieldName = e.target.name;
-    const fieldValue = e.target.value;
+    const fieldName = e.target.name
+    const fieldValue = e.target.value
 
-    setFormData((prevState) => ({
+    setFormData(prevState => ({
       ...prevState,
       [fieldName]: fieldValue,
-    }));
-  };
+    }))
+  }
 
   const submitForm = async (e: any) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    setShowThanks(true);
-    setInterval(() => setShowThanks(false), 5000);
+    setShowThanks(true)
+    setInterval(() => setShowThanks(false), 5000)
 
     setFormData({
-      naam: "",
-      opmerking: "",
+      naam: '',
+      opmerking: '',
       likes: 0,
-    });
+    })
 
     const response = await postFeedbackRequest({
       naam: formData.naam,
       opmerking: formData.opmerking,
       likes: formData.likes,
-    });
+    })
 
     if (response) {
-      reSetchSubmittedFeedbacks();
+      reSetchSubmittedFeedbacks()
 
       const templateParams = {
-        to_name: "independentartmagazine@gmail.com",
-        from_name: "independentartmagazine@gmail.com",
+        to_name: 'independentartmagazine@gmail.com',
+        from_name: 'independentartmagazine@gmail.com',
         form_name: formData.naam,
         message: formData.opmerking,
-      };
+      }
 
       emailjs.send(
-        "service_ux0vih8",
-        "template_ppfwqkl",
+        'service_ux0vih8',
+        'template_ppfwqkl',
         templateParams,
-        "yZ0JwXzFm2XsODp6Q"
-      );
+        'yZ0JwXzFm2XsODp6Q'
+      )
     }
-  };
+  }
 
   return (
     <form onSubmit={submitForm} className="md:mr-10 mb-4">
@@ -105,7 +105,7 @@ const Form = () => {
         Verzend
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

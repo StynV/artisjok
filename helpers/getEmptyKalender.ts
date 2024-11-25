@@ -1,11 +1,11 @@
-import { AllKalenders } from "@/models/allKalenders"
+import { AllKalenders } from '@/models/allKalenders'
 
 const getEmptyKalender = (): AllKalenders => {
   return {
     id: '',
     link: '',
     naam: '',
-    foto: null
+    foto: null,
   }
 }
 

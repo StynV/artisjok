@@ -1,3 +1,18 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "rules": {
+    "semi": ["error", "never"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "singleQuote": true,
+        "tabWidth": 2, // or set it to your desired tab width
+        "printWidth": 80, // this is the max line length before wrapping
+        "trailingComma": "es5",
+        "arrowParens": "avoid"
+      }
+    ]
+  }
 }

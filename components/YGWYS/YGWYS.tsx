@@ -1,23 +1,23 @@
-"use client";
+'use client'
 
-import styles from "./ygwys.module.scss";
-import { useEffect } from "react";
+import styles from './ygwys.module.scss'
+import { useEffect } from 'react'
 
 const YGWYS = ({ text, className }: { text: string; className: string }) => {
   useEffect(() => {
     document
       .querySelectorAll('div[style*="text-align: center;"]')
       .forEach(function (div) {
-        div.classList.add(styles.centeredText);
-      });
+        div.classList.add(styles.centeredText)
+      })
 
-    const paragraphs = document.querySelectorAll("p");
-    paragraphs.forEach((p) => {
-      if (p.textContent === "Team IAM") {
-        p.classList.add(styles.teamIAM);
+    const paragraphs = document.querySelectorAll('p')
+    paragraphs.forEach(p => {
+      if (p.textContent === 'Team IAM') {
+        p.classList.add(styles.teamIAM)
       }
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <section
@@ -25,7 +25,7 @@ const YGWYS = ({ text, className }: { text: string; className: string }) => {
     >
       <div className={styles.body} dangerouslySetInnerHTML={{ __html: text }} />
     </section>
-  );
-};
+  )
+}
 
-export default YGWYS;
+export default YGWYS

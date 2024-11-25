@@ -1,23 +1,23 @@
-import Footer from "@/components/Footer/Footer";
-import Icon from "@/components/Icon/Icon";
-import { performRequest } from "@/datocms/performRequest";
-import { CONTACT_PAGE_CONTENT_QUERY } from "@/datocms/queries";
-import { HomePagina } from "@/models/homePagina";
-import Image from "next/image";
-import Link from "next/link";
+import Footer from '@/components/Footer/Footer'
+import Icon from '@/components/Icon/Icon'
+import { performRequest } from '@/datocms/performRequest'
+import { CONTACT_PAGE_CONTENT_QUERY } from '@/datocms/queries'
+import { HomePagina } from '@/models/homePagina'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default async function Contact() {
   const {
     data: { homePagina },
   } = await performRequest<{ data: { homePagina: HomePagina } }>({
     query: CONTACT_PAGE_CONTENT_QUERY,
-  });
+  })
 
   return (
     <>
       <section
         className={
-          "flex flex-col items-center justify-center text-xl bg-white min-h-screen lg:pr-40 pr-10 lg:pl-40 pl-10"
+          'flex flex-col items-center justify-center text-xl bg-white min-h-screen lg:pr-40 pr-10 lg:pl-40 pl-10'
         }
       >
         <Image
@@ -67,5 +67,5 @@ export default async function Contact() {
 
       <Footer />
     </>
-  );
+  )
 }

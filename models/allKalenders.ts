@@ -1,8 +1,8 @@
-import { Image } from './image';
+import { Image } from './image'
 
 export interface AllKalenders {
-    foto: Image | null,
-    id: string,
-    link: string,
-    naam: string,
+  foto: Image | null
+  id: string
+  link: string
+  naam: string
 }
