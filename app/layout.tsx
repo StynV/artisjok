@@ -10,7 +10,6 @@ import { LAYOUT_CONTENT_QUERY } from '@/datocms/queries'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
-import Footer from '@/components/Footer/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -44,7 +43,6 @@ export default function RootLayout({
           <Providers>
             <NavBar />
             {children}
-            <Footer />
             <CookieBar />
             <Analytics />
           </Providers>

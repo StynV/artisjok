@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer/Footer'
 import Fotos from '@/components/Pages/Fotos'
 import { performRequest } from '@/datocms/performRequest'
 import { EVENT_FOTOS_CONTENT_QUERY } from '@/datocms/queries'
@@ -14,7 +15,7 @@ export default async function FotosPage() {
     <>
       {allEventFotos.map(eventFotos => (
         <section
-          className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-4.8rem)] bg-white pt-28 md:pl-40 pl-10 md:pr-40 pr-10 pb-28"
+          className="min-h-screen bg-white pt-28 md:pl-40 pl-10 md:pr-40 pr-10 pb-28"
           key={eventFotos.id}
         >
           <h1 className="lg:text-4xl text-2xl md:mb-10 mb-6 text-black">
@@ -27,6 +28,8 @@ export default async function FotosPage() {
           />
         </section>
       ))}
+
+      <Footer fixed={true} />
     </>
   )
 }
