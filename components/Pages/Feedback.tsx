@@ -26,7 +26,7 @@ const Feedback = ({ title }: { title: string }) => {
   }, [feedbackSubmitted])
 
   return (
-    <section className="min-h-screen bg-white md:pl-40 pl-10 md:pr-40 pr-10 flex flex-col justify-center">
+    <section className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-4.8rem)] bg-white md:pl-40 pl-10 md:pr-40 pr-10 flex flex-col justify-center">
       <section className="mb-4">
         <h1 className="md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-6 text-black">
           {title}
