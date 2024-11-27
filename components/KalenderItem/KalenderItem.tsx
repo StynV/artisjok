@@ -1,6 +1,7 @@
-import { AllKalenders } from '@/models/allKalenders'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+
+import { AllKalenders } from '@/models/allKalenders'
 
 const KalenderItem = ({
   kalenderItem,

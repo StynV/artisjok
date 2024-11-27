@@ -1,10 +1,11 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
 import Footer from '@/components/Footer/Footer'
 import Icon from '@/components/Icon/Icon'
 import { performRequest } from '@/datocms/performRequest'
 import { CONTACT_PAGE_CONTENT_QUERY } from '@/datocms/queries'
 import { HomePagina } from '@/models/homePagina'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export default async function Contact() {
   const {

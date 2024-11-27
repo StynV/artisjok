@@ -1,7 +1,7 @@
+import Feedback from '@/components/Pages/Feedback'
 import { performRequest } from '@/datocms/performRequest'
 import { FEEDBACK_PAGE_CONTENT_QUERY } from '@/datocms/queries'
 import { HomePagina } from '@/models/homePagina'
-import Feedback from '@/components/Pages/Feedback'
 
 export default async function FeedbackPage() {
   const {

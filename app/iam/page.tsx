@@ -1,7 +1,7 @@
+import IAM from '@/components/Pages/IAM'
 import { performRequest } from '@/datocms/performRequest'
 import { IAM_PAGE_CONTENT_QUERY } from '@/datocms/queries'
 import { HomePagina } from '@/models/homePagina'
-import IAM from '@/components/Pages/IAM'
 
 export default async function IAMPage() {
   const {

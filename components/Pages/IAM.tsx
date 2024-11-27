@@ -1,10 +1,12 @@
 'use client'
 
-import { Image as ImageModel } from '@/models/image'
-import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { Image as ImageModel } from '@/models/image'
+
 import Footer from '../Footer/Footer'
 
 const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {

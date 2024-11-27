@@ -1,10 +1,11 @@
 'use client'
 
+import { useState } from 'react'
+
 import KalenderItem from '@/components/KalenderItem/KalenderItem'
 import getEmptyKalender from '@/helpers/getEmptyKalender'
 import shuffleArray from '@/helpers/shuffleArray'
 import { AllKalenders } from '@/models/allKalenders'
-import { useState } from 'react'
 
 const KalendersPage = ({ allKalenders }: { allKalenders: AllKalenders[] }) => {
   const [kalenders, setKalenders] = useState(() => {

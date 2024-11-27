@@ -1,14 +1,17 @@
+import { GoogleTagManager } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { performRequest } from '@/datocms/performRequest'
-import { Layout } from '@/models/layout'
-import { Providers } from './providers'
-import NavBar from '@/components/NavBar/NavBar'
-import CookieBar from '@/components/CookieBar/CookieBar'
-import { GoogleTagManager } from '@next/third-parties/google'
-import { LAYOUT_CONTENT_QUERY } from '@/datocms/queries'
 import { ViewTransitions } from 'next-view-transitions'
-import { Analytics } from '@vercel/analytics/react'
+
+import CookieBar from '@/components/CookieBar/CookieBar'
+import NavBar from '@/components/NavBar/NavBar'
+import { performRequest } from '@/datocms/performRequest'
+import { LAYOUT_CONTENT_QUERY } from '@/datocms/queries'
+import { Layout } from '@/models/layout'
+
+import { Providers } from './providers'
+
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })

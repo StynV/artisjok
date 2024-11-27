@@ -1,13 +1,15 @@
 'use client'
 
-import Form from '../Form/Form'
-import { Feedback as FeedbackModel } from '@/models/feedback'
 import { useEffect, useState } from 'react'
-import LikeButton from '../LikeButton/LikeButton'
+
 import { useFeedbackSubmittedContext } from '@/context/feedback'
 import { performRequest } from '@/datocms/performRequest'
 import { FEEDBACK_QUERY } from '@/datocms/queries'
+import { Feedback as FeedbackModel } from '@/models/feedback'
+
 import Footer from '../Footer/Footer'
+import Form from '../Form/Form'
+import LikeButton from '../LikeButton/LikeButton'
 
 const Feedback = ({ title }: { title: string }) => {
   const [allFeedbacks, setAllFeedbacks] = useState<FeedbackModel[]>([])

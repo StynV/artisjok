@@ -1,9 +1,10 @@
+import Image from 'next/image'
+
 import Footer from '@/components/Footer/Footer'
 import YGWYS from '@/components/YGWYS/YGWYS'
 import { performRequest } from '@/datocms/performRequest'
 import { HOME_PAGE_CONTENT_QUERY } from '@/datocms/queries'
 import { HomePagina } from '@/models/homePagina'
-import Image from 'next/image'
 
 export default async function Home() {
   const {

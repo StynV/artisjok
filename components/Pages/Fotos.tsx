@@ -1,10 +1,12 @@
 'use client'
 
-import { Image } from '@/models/image'
-import { InstagramEmbed } from 'react-social-media-embed'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Carousel } from 'react-responsive-carousel'
 import { useMediaQuery } from 'react-responsive'
+import { Carousel } from 'react-responsive-carousel'
+import { InstagramEmbed } from 'react-social-media-embed'
+
+import { Image } from '@/models/image'
+
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 interface props {
   fotos: Image[]

@@ -1,5 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["simple-import-sort", "import"],
   "rules": {
     "semi": ["error", "never"],
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
@@ -13,6 +14,22 @@
         "trailingComma": "es5",
         "arrowParens": "avoid"
       }
-    ]
+    ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // External libraries
+          ["^react", "^@?\\w"],
+          // Absolute imports and other imports
+          ["^"],
+          // Relative imports
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // CSS or Sass imports
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
   }
 }

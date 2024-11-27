@@ -1,7 +1,8 @@
 'use client'
 
-import styles from './ygwys.module.scss'
 import { useEffect } from 'react'
+
+import styles from './ygwys.module.scss'
 
 const YGWYS = ({ text, className }: { text: string; className: string }) => {
   useEffect(() => {

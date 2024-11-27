@@ -1,7 +1,8 @@
-import { useFeedbackSubmittedContext } from '@/context/feedback'
-import { postFeedbackRequest } from '@/datocms/postFeedbackRequest'
 import { useState } from 'react'
 import emailjs from 'emailjs-com'
+
+import { useFeedbackSubmittedContext } from '@/context/feedback'
+import { postFeedbackRequest } from '@/datocms/postFeedbackRequest'
 
 const Form = () => {
   const [showThanks, setShowThanks] = useState(false)
