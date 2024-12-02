@@ -78,7 +78,6 @@ export default async function Contact() {
         instagramLogo={homePagina.instagramLogo}
         linkedin={homePagina.linkedin}
         linkedinLogo={homePagina.linkedinLogo}
-        className="fixed"
       />
     </div>
   )
