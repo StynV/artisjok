@@ -104,9 +104,9 @@ const IAM = ({
 
   return (
     <>
-      <section className="md:min-h-screen bg-white md:pl-40 pl-10 md:pr-40 pr-10 pt-24 md:pt-0 flex flex-col justify-center">
+      <section className="lg:min-h-screen bg-white lg:pl-40 pl-10 lg:pr-40 pr-10 pt-24 lg:pt-0 flex flex-col justify-center">
         <section className="mb-4">
-          <h1 className="lg:text-4xl text-2xl text-center md:mb-10 mb-6 text-black">
+          <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
             {title}
           </h1>
           <div className="wrapper flex justify-center mb-2">

@@ -49,9 +49,9 @@ const Feedback = ({
 
   return (
     <>
-      <section className="md:min-h-screen bg-white pt-24 md:pt-0 md:pl-40 pl-10 md:pr-40 pr-10 flex flex-col justify-center">
+      <section className="lg:min-h-screen bg-white pt-24 lg:pt-0 lg:pl-40 pl-10 lg:pr-40 pr-10 flex flex-col justify-center">
         <section className="mb-4">
-          <h1 className="lg:text-4xl text-2xl text-center md:mb-10 mb-6 text-black">
+          <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
             {title}
           </h1>
         </section>
@@ -61,7 +61,7 @@ const Feedback = ({
               <Form />
             </article>
           </section>
-          <section className="lg:col-span-3 lg:grid overflow-y-scroll md:h-80 pb-10 md:pb-0">
+          <section className="lg:col-span-3 lg:grid overflow-y-scroll lg:h-80 pb-10 lg:pb-0">
             {allFeedbacks.map(feedback => (
               <div className="flex gap-4 items-center" key={feedback.id}>
                 <div className="flex flex-row border-b-2 mb-2 pb-2 text-black w-full">

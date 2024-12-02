@@ -17,7 +17,6 @@ interface props {
   instagramLogo: ImageModel
   linkedin: string
   linkedinLogo: ImageModel
-  className?: string
 }
 
 const Footer = ({
@@ -29,16 +28,15 @@ const Footer = ({
   instagramLogo,
   linkedin,
   linkedinLogo,
-  className,
 }: props) => {
   const currentYear = new Date().getFullYear()
   const isMobile = useMediaQuery({ maxWidth: 768 })
 
   return (
     <footer
-      className={`${fixed && !isMobile && 'fixed'} bottom-0 left-0 right-0 flex 2xl:flex-row flex-col items-center justify-between 2xl:pl-80 pl-10 2xl:pr-80 pr-10 py-6 bg-gray-100`}
+      className={`${fixed && !isMobile && 'fixed'} bottom-0 left-0 right-0 flex lg:flex-row flex-col items-center justify-between lg:pl-80 pl-10 lg:pr-80 pr-10 py-6 bg-gray-100`}
     >
-      <div className="text-black 2xl:text-xl flex flex-col justify-center 2xl:items-start items-center w-full">
+      <div className="text-black lg:text-xl flex flex-col justify-center lg:items-start items-center w-full">
         <Image
           src={logo.url}
           alt={logo.alt}
@@ -58,7 +56,7 @@ const Footer = ({
           Site by Styn Vercauteren
         </Link>
       </div>
-      <div className="text-black 2xl:text-xl flex xl:flex-row flex-col gap-5 items-center justify-center w-full">
+      <div className="text-black lg:text-xl flex 3xl:flex-row flex-col gap-5 items-center justify-center w-full">
         <div className="flex flex-row gap-4 mt-4">
           <Icon
             href={facebook}

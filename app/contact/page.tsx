@@ -18,7 +18,7 @@ export default async function Contact() {
     <div className="min-h-screen flex flex-col">
       <section
         className={
-          'flex flex-col flex-grow items-center md:justify-center text-xl bg-white pt-44 md:pt-0 lg:pr-40 pr-10 lg:pl-40 pl-10'
+          'flex flex-col flex-grow items-center md:justify-center text-xl bg-white pt-44 lg:pt-0 lg:pr-40 pr-10 lg:pl-40 pl-10'
         }
       >
         <Image
