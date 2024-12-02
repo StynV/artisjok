@@ -103,55 +103,53 @@ const IAM = ({
     'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
   return (
-    <>
-      <section className="lg:min-h-screen bg-white lg:pl-40 pl-10 lg:pr-40 pr-10 pt-24 lg:pt-0 flex flex-col justify-center">
-        <section className="mb-4">
-          <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
-            {title}
-          </h1>
-          <div className="wrapper flex justify-center mb-2">
-            <div
-              className="flex flex-row justify-start gap-10 overflow-x-scroll overflow-y-hidden"
-              style={{ width: `${80 * 17 + 10 * 3}px` }}
-              ref={containerRef}
-              onWheel={handleWheel}
-            >
-              {covers.map((image, index) => (
-                <Link key={index} href={image.title ?? ''}>
-                  <div className="lg:w-36 xl:w-80 w-72">
-                    <Image
-                      src={image.url}
-                      alt={image.alt}
-                      height={image.height}
-                      width={image.width}
-                      priority
-                    />
-                  </div>
-                </Link>
-              ))}
-            </div>
+    <main className="min-h-screen bg-white flex flex-col justify-center">
+      <section className="mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 md:pt-0 pt-24">
+        <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
+          {title}
+        </h1>
+        <div className="wrapper flex justify-center mb-2">
+          <div
+            className="flex flex-row justify-start gap-10 overflow-x-scroll overflow-y-hidden"
+            style={{ width: `${80 * 17 + 10 * 3}px` }}
+            ref={containerRef}
+            onWheel={handleWheel}
+          >
+            {covers.map((image, index) => (
+              <Link key={index} href={image.title ?? ''}>
+                <div className="lg:w-36 xl:w-80 w-72">
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    height={image.height}
+                    width={image.width}
+                    priority
+                  />
+                </div>
+              </Link>
+            ))}
           </div>
-          <div className="flex justify-end pr-4">
-            <button
-              className={`${btnStyling} mr-2 ${
-                scrollAtStart && 'border-gray-100 text-gray-200'
-              }`}
-              onClick={handleBackClick}
-              disabled={scrollAtStart}
-            >
-              <p className="text-black">{`<`}</p>
-            </button>
-            <button
-              className={`${btnStyling} ${
-                scrollAtEnd && 'border-gray-100 text-gray-200'
-              }`}
-              onClick={handleNextClick}
-              disabled={scrollAtEnd}
-            >
-              <p className="text-black">{`>`}</p>
-            </button>
-          </div>
-        </section>
+        </div>
+        <div className="flex justify-end pr-4">
+          <button
+            className={`${btnStyling} mr-2 ${
+              scrollAtStart && 'border-gray-100 text-gray-200'
+            }`}
+            onClick={handleBackClick}
+            disabled={scrollAtStart}
+          >
+            <p className="text-black">{`<`}</p>
+          </button>
+          <button
+            className={`${btnStyling} ${
+              scrollAtEnd && 'border-gray-100 text-gray-200'
+            }`}
+            onClick={handleNextClick}
+            disabled={scrollAtEnd}
+          >
+            <p className="text-black">{`>`}</p>
+          </button>
+        </div>
       </section>
 
       <Footer
@@ -164,7 +162,7 @@ const IAM = ({
         linkedin={linkedin}
         linkedinLogo={linkedinLogo}
       />
-    </>
+    </main>
   )
 }
 

@@ -1,6 +1,5 @@
 'use client'
 
-import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -30,11 +29,10 @@ const Footer = ({
   linkedinLogo,
 }: props) => {
   const currentYear = new Date().getFullYear()
-  const isMobile = useMediaQuery({ maxWidth: 768 })
 
   return (
     <footer
-      className={`${fixed && !isMobile && 'fixed'} bottom-0 left-0 right-0 flex lg:flex-row flex-col items-center justify-between lg:pl-80 pl-10 lg:pr-80 pr-10 py-6 bg-gray-100`}
+      className={`${fixed && 'md:fixed'} bottom-0 left-0 right-0 flex lg:flex-row flex-col items-center justify-between lg:pl-80 pl-10 lg:pr-80 pr-10 py-6 bg-gray-100`}
     >
       <div className="text-black lg:text-xl flex flex-col justify-center lg:items-start items-center w-full">
         <Image
