@@ -9,7 +9,27 @@ import { Image as ImageModel } from '@/models/image'
 
 import Footer from '../Footer/Footer'
 
-const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
+const IAM = ({
+  title,
+  covers,
+  logo,
+  facebook,
+  facebookLogo,
+  instagram,
+  instagramLogo,
+  linkedin,
+  linkedinLogo,
+}: {
+  title: string
+  covers: ImageModel[]
+  logo: ImageModel
+  facebook: string
+  facebookLogo: ImageModel
+  instagram: string
+  instagramLogo: ImageModel
+  linkedin: string
+  linkedinLogo: ImageModel
+}) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const [scrollAtStart, setScrollAtStart] = useState(true)
@@ -84,9 +104,9 @@ const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
 
   return (
     <>
-      <section className="min-h-screen bg-white md:pl-40 pl-10 md:pr-40 pr-10 flex flex-col justify-center">
+      <section className="md:min-h-screen bg-white md:pl-40 pl-10 md:pr-40 pr-10 pt-24 md:pt-0 flex flex-col justify-center">
         <section className="mb-4">
-          <h1 className="md:text-9xl lg:text-4xl text-2xl text-center md:mb-10 mb-6 text-black">
+          <h1 className="lg:text-4xl text-2xl text-center md:mb-10 mb-6 text-black">
             {title}
           </h1>
           <div className="wrapper flex justify-center mb-2">
@@ -134,7 +154,16 @@ const IAM = ({ title, covers }: { title: string; covers: ImageModel[] }) => {
         </section>
       </section>
 
-      <Footer fixed={true} />
+      <Footer
+        fixed={true}
+        logo={logo}
+        facebook={facebook}
+        facebookLogo={facebookLogo}
+        instagram={instagram}
+        instagramLogo={instagramLogo}
+        linkedin={linkedin}
+        linkedinLogo={linkedinLogo}
+      />
     </>
   )
 }

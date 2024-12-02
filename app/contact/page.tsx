@@ -15,10 +15,10 @@ export default async function Contact() {
   })
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <section
         className={
-          'flex flex-col min-h-screen items-center justify-center text-xl bg-white lg:pr-40 pr-10 lg:pl-40 pl-10'
+          'flex flex-col flex-grow items-center md:justify-center text-xl bg-white pt-44 md:pt-0 lg:pr-40 pr-10 lg:pl-40 pl-10'
         }
       >
         <Image
@@ -35,16 +35,19 @@ export default async function Contact() {
             href={homePagina.facebook}
             src={homePagina.facebookLogo.url}
             alt={homePagina.facebookLogo.alt}
+            grayscale
           />
           <Icon
             href={homePagina.instagram}
             src={homePagina.instagramLogo.url}
             alt={homePagina.instagramLogo.alt}
+            grayscale
           />
           <Icon
             href={homePagina.linkedin}
             src={homePagina.linkedinLogo.url}
             alt={homePagina.linkedinLogo.alt}
+            grayscale
           />
         </div>
 
@@ -66,7 +69,17 @@ export default async function Contact() {
         </div>
       </section>
 
-      <Footer fixed={true} />
-    </>
+      <Footer
+        fixed={true}
+        logo={homePagina.logo}
+        facebook={homePagina.facebook}
+        facebookLogo={homePagina.facebookLogo}
+        instagram={homePagina.instagram}
+        instagramLogo={homePagina.instagramLogo}
+        linkedin={homePagina.linkedin}
+        linkedinLogo={homePagina.linkedinLogo}
+        className="fixed"
+      />
+    </div>
   )
 }

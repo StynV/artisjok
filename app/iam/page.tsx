@@ -10,5 +10,17 @@ export default async function IAMPage() {
     query: IAM_PAGE_CONTENT_QUERY,
   })
 
-  return <IAM title={homePagina.iamTitel} covers={homePagina.covers} />
+  return (
+    <IAM
+      title={homePagina.iamTitel}
+      covers={homePagina.covers}
+      logo={homePagina.logo}
+      facebook={homePagina.facebook}
+      facebookLogo={homePagina.facebookLogo}
+      instagram={homePagina.instagram}
+      instagramLogo={homePagina.instagramLogo}
+      linkedin={homePagina.linkedin}
+      linkedinLogo={homePagina.linkedinLogo}
+    />
+  )
 }

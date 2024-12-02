@@ -10,5 +10,16 @@ export default async function FeedbackPage() {
     query: FEEDBACK_PAGE_CONTENT_QUERY,
   })
 
-  return <Feedback title={homePagina.feedbackTitel} />
+  return (
+    <Feedback
+      title={homePagina.feedbackTitel}
+      logo={homePagina.logo}
+      facebook={homePagina.facebook}
+      facebookLogo={homePagina.facebookLogo}
+      instagram={homePagina.instagram}
+      instagramLogo={homePagina.instagramLogo}
+      linkedin={homePagina.linkedin}
+      linkedinLogo={homePagina.linkedinLogo}
+    />
+  )
 }

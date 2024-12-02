@@ -29,7 +29,16 @@ export default async function Home() {
         <YGWYS text={homePagina.text} className="md:w-10/12" />
       </section>
 
-      <Footer fixed={false} />
+      <Footer
+        fixed={false}
+        logo={homePagina.logo}
+        facebook={homePagina.facebook}
+        facebookLogo={homePagina.facebookLogo}
+        instagram={homePagina.instagram}
+        instagramLogo={homePagina.instagramLogo}
+        linkedin={homePagina.linkedin}
+        linkedinLogo={homePagina.linkedinLogo}
+      />
     </main>
   )
 }

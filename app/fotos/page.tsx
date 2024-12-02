@@ -1,14 +1,21 @@
 import Footer from '@/components/Footer/Footer'
 import Fotos from '@/components/Pages/Fotos'
 import { performRequest } from '@/datocms/performRequest'
-import { EVENT_FOTOS_CONTENT_QUERY } from '@/datocms/queries'
+import { EVENT_FOTOS_CONTENT_QUERY, ONLY_LOGO_QUERY } from '@/datocms/queries'
 import { EventFotosPagina } from '@/models/eventFotosPagina'
+import { HomePagina } from '@/models/homePagina'
 
 export default async function FotosPage() {
   const {
     data: { allEventFotos },
   } = await performRequest<{ data: { allEventFotos: EventFotosPagina[] } }>({
     query: EVENT_FOTOS_CONTENT_QUERY,
+  })
+
+  const {
+    data: { homePagina },
+  } = await performRequest<{ data: { homePagina: HomePagina } }>({
+    query: ONLY_LOGO_QUERY,
   })
 
   return (
@@ -29,7 +36,16 @@ export default async function FotosPage() {
         </section>
       ))}
 
-      <Footer fixed={true} />
+      <Footer
+        fixed={true}
+        logo={homePagina.logo}
+        facebook={homePagina.facebook}
+        facebookLogo={homePagina.facebookLogo}
+        instagram={homePagina.instagram}
+        instagramLogo={homePagina.instagramLogo}
+        linkedin={homePagina.linkedin}
+        linkedinLogo={homePagina.linkedinLogo}
+      />
     </>
   )
 }

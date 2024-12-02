@@ -1,3 +1,33 @@
+const FOOTER_QUERY = `
+    facebook
+    facebookLogo {
+      url
+      alt
+      height
+      width
+    }
+    instagram
+    instagramLogo {
+      url
+      alt
+      height
+      width
+    }
+    linkedin
+    linkedinLogo {
+      url
+      alt
+      height
+      width
+    }
+    logo {
+      url
+      alt
+      height
+      width
+    }
+`
+
 export const LAYOUT_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
@@ -14,12 +44,7 @@ query MyQuery {
 export const HOME_PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
-    logo {
-      url
-      alt
-      height
-      width
-    }
+    ${FOOTER_QUERY}
     text
   }
 }
@@ -36,6 +61,7 @@ query MyQuery {
       width
       title
     }
+    ${FOOTER_QUERY}
   }
 }
 `
@@ -43,6 +69,7 @@ query MyQuery {
 export const FEEDBACK_PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
+    ${FOOTER_QUERY}
     feedbackTitel
   }
 }
@@ -89,27 +116,7 @@ query MyQuery {
     huisnummer
     gemeente
     postcode
-    facebook
-    facebookLogo {
-      url
-      alt
-      height
-      width
-    }
-    instagram
-    instagramLogo {
-      url
-      alt
-      height
-      width
-    }
-    linkedin
-    linkedinLogo {
-      url
-      alt
-      height
-      width
-    }
+    ${FOOTER_QUERY}
   }
 }
 `
@@ -127,6 +134,13 @@ query MyQuery {
       url
       id
     }
+  }
+}
+`
+export const ONLY_LOGO_QUERY = `
+query MyQuery {
+  homePagina {
+    ${FOOTER_QUERY}
   }
 }
 `
