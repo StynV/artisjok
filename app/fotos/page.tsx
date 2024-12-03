@@ -14,7 +14,7 @@ export default async function FotosPage() {
     <>
       {allEventFotos.map(eventFotos => (
         <section
-          className="mt-auto flex flex-col justify-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-4"
+          className="mt-auto flex flex-col justify-center mb-16 lg:mb-0 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-16"
           key={eventFotos.id}
         >
           <h1 className="lg:text-4xl text-2xl md:mb-10 mb-6 text-black lg:pt-8">

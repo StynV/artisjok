@@ -14,7 +14,7 @@ export default async function Contact() {
   })
 
   return (
-    <section className="mt-auto flex flex-col justify-center items-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-4">
+    <section className="mt-auto flex flex-col justify-center items-center mb-16 lg:mb-0 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-16">
       <Image
         src={homePagina.contactLogo.url}
         alt={homePagina.contactLogo.alt}

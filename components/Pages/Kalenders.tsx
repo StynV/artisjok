@@ -17,7 +17,7 @@ const KalendersPage = ({ allKalenders }: { allKalenders: AllKalenders[] }) => {
   return (
     <section
       className={
-        'mt-auto grid grid-cols-4 grid-rows-3 gap-5 h-screen pt-40 lg:pr-40 pr-10 pb-20 lg:pl-40 pl-10'
+        'mt-auto grid grid-cols-4 grid-rows-3 gap-5 h-screen mb-16 lg:mb-0 pt-40 lg:pr-40 pr-10 pb-20 lg:pl-40 pl-10'
       }
     >
       {kalenders.map((kalenderItem, index) => (

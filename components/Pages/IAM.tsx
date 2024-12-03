@@ -88,7 +88,7 @@ const IAM = ({
     'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
   return (
-    <section className="mt-auto flex flex-col justify-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-4">
+    <section className="mt-auto flex flex-col justify-center mb-16 lg:mb-0 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-16">
       <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
         {title}
       </h1>
