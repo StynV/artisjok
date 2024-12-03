@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Footer from '@/components/Footer/Footer'
 import Icon from '@/components/Icon/Icon'
 import { performRequest } from '@/datocms/performRequest'
 import { CONTACT_PAGE_CONTENT_QUERY } from '@/datocms/queries'
@@ -15,11 +14,7 @@ export default async function Contact() {
   })
 
   return (
-    <section
-      className={
-        'min-h-screen flex flex-col flex-grow items-center md:justify-center text-xl bg-white lg:pr-40 pr-10 lg:pl-40 pl-10'
-      }
-    >
+    <section className="mt-auto flex flex-col justify-center items-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-4">
       <Image
         src={homePagina.contactLogo.url}
         alt={homePagina.contactLogo.alt}
@@ -66,17 +61,6 @@ export default async function Contact() {
           </p>
         </div>
       </div>
-
-      <Footer
-        fixed={true}
-        logo={homePagina.logo}
-        facebook={homePagina.facebook}
-        facebookLogo={homePagina.facebookLogo}
-        instagram={homePagina.instagram}
-        instagramLogo={homePagina.instagramLogo}
-        linkedin={homePagina.linkedin}
-        linkedinLogo={homePagina.linkedinLogo}
-      />
     </section>
   )
 }

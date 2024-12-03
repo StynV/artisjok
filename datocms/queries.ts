@@ -36,7 +36,8 @@ query MyQuery {
       content
       tag
     },
-    keywords
+    keywords,
+    ${FOOTER_QUERY}
   }
 }
 `
@@ -44,7 +45,12 @@ query MyQuery {
 export const HOME_PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
-    ${FOOTER_QUERY}
+    logo {
+      url
+      alt
+      height
+      width
+    }
     text
   }
 }
@@ -61,7 +67,6 @@ query MyQuery {
       width
       title
     }
-    ${FOOTER_QUERY}
   }
 }
 `
@@ -69,7 +74,6 @@ query MyQuery {
 export const FEEDBACK_PAGE_CONTENT_QUERY = `
 query MyQuery {
   homePagina {
-    ${FOOTER_QUERY}
     feedbackTitel
   }
 }

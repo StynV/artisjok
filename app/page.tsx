@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import Footer from '@/components/Footer/Footer'
 import YGWYS from '@/components/YGWYS/YGWYS'
 import { performRequest } from '@/datocms/performRequest'
 import { HOME_PAGE_CONTENT_QUERY } from '@/datocms/queries'
@@ -14,7 +13,7 @@ export default async function Home() {
   })
 
   return (
-    <main className="bg-white min-h-screen flex flex-col justify-center pt-40">
+    <section className="bg-white min-h-screen flex flex-col justify-center pt-40">
       <header className="mb-20 self-center">
         <Image
           src={homePagina.logo.url}
@@ -28,17 +27,6 @@ export default async function Home() {
       <section>
         <YGWYS text={homePagina.text} className="md:w-10/12" />
       </section>
-
-      <Footer
-        fixed={false}
-        logo={homePagina.logo}
-        facebook={homePagina.facebook}
-        facebookLogo={homePagina.facebookLogo}
-        instagram={homePagina.instagram}
-        instagramLogo={homePagina.instagramLogo}
-        linkedin={homePagina.linkedin}
-        linkedinLogo={homePagina.linkedinLogo}
-      />
-    </main>
+    </section>
   )
 }

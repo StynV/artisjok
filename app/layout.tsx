@@ -5,9 +5,11 @@ import { Inter } from 'next/font/google'
 import { ViewTransitions } from 'next-view-transitions'
 
 import CookieBar from '@/components/CookieBar/CookieBar'
+import Footer from '@/components/Footer/Footer'
 import NavBar from '@/components/NavBar/NavBar'
 import { performRequest } from '@/datocms/performRequest'
-import { LAYOUT_CONTENT_QUERY } from '@/datocms/queries'
+import { LAYOUT_CONTENT_QUERY, ONLY_LOGO_QUERY } from '@/datocms/queries'
+import { HomePagina } from '@/models/homePagina'
 import { Layout } from '@/models/layout'
 
 import { Providers } from './providers'
@@ -34,18 +36,34 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const {
+    data: { homePagina },
+  } = await performRequest<{ data: { homePagina: HomePagina } }>({
+    query: ONLY_LOGO_QUERY,
+  })
   return (
     <ViewTransitions>
       <html lang="en">
         <body className={inter.className}>
           <Providers>
             <NavBar />
-            {children}
+            <main className="min-h-screen overflow-y-auto bg-white flex flex-col pt-16">
+              {children}
+              <Footer
+                logo={homePagina.logo}
+                facebook={homePagina.facebook}
+                facebookLogo={homePagina.facebookLogo}
+                instagram={homePagina.instagram}
+                instagramLogo={homePagina.instagramLogo}
+                linkedin={homePagina.linkedin}
+                linkedinLogo={homePagina.linkedinLogo}
+              />
+            </main>
             <CookieBar />
             <Analytics />
           </Providers>

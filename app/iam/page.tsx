@@ -15,12 +15,6 @@ export default async function IAMPage() {
       title={homePagina.iamTitel}
       covers={homePagina.covers}
       logo={homePagina.logo}
-      facebook={homePagina.facebook}
-      facebookLogo={homePagina.facebookLogo}
-      instagram={homePagina.instagram}
-      instagramLogo={homePagina.instagramLogo}
-      linkedin={homePagina.linkedin}
-      linkedinLogo={homePagina.linkedinLogo}
     />
   )
 }
