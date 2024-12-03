@@ -103,8 +103,8 @@ const IAM = ({
     'p-2 pl-4 pr-4 border-gray-500 border-2 rounded-full w-10 h-10 flex justify-center items-center'
 
   return (
-    <main className="min-h-screen bg-white flex flex-col justify-center">
-      <section className="mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 md:pt-0 pt-24">
+    <main className="min-h-screen overflow-y-auto bg-white flex flex-col justify-center pt-16">
+      <section className="mt-auto justify-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 md:pt-0 pt-24">
         <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
           {title}
         </h1>
@@ -153,7 +153,7 @@ const IAM = ({
       </section>
 
       <Footer
-        fixed={true}
+        fixed={false}
         logo={logo}
         facebook={facebook}
         facebookLogo={facebookLogo}
@@ -161,6 +161,7 @@ const IAM = ({
         instagramLogo={instagramLogo}
         linkedin={linkedin}
         linkedinLogo={linkedinLogo}
+        className="mt-auto"
       />
     </main>
   )
