@@ -104,7 +104,7 @@ const IAM = ({
 
   return (
     <main className="min-h-screen overflow-y-auto bg-white flex flex-col justify-center pt-16">
-      <section className="mt-auto justify-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 md:pt-0 pt-24">
+      <section className="mt-auto justify-center mb-4 lg:pl-40 pl-10 lg:pr-40 pr-10 pt-8 md:pt-4">
         <h1 className="lg:text-4xl text-2xl text-center lg:mb-10 mb-6 text-black">
           {title}
         </h1>
