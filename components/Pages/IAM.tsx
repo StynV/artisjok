@@ -93,28 +93,28 @@ const IAM = ({
         {title}
       </h1>
       <div className="wrapper flex justify-center mb-2">
-        <div
+        {/* <div
           className="flex flex-row justify-start gap-10 overflow-x-scroll overflow-y-hidden"
           style={{ width: `${80 * 17 + 10 * 3}px` }}
           ref={containerRef}
           onWheel={handleWheel}
-        >
-          {covers.map((image, index) => (
-            <Link key={index} href={image.title ?? ''}>
-              <div className="lg:w-36 xl:w-80 w-72">
-                <Image
-                  src={image.url}
-                  alt={image.alt}
-                  height={image.height}
-                  width={image.width}
-                  priority
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
+        > */}
+        {covers.map((image, index) => (
+          <Link key={index} href={image.title ?? ''}>
+            <div className="lg:w-36 xl:w-80 w-72">
+              <Image
+                src={image.url}
+                alt={image.alt}
+                height={image.height}
+                width={image.width}
+                priority
+              />
+            </div>
+          </Link>
+        ))}
+        {/* </div> */}
       </div>
-      <div className="flex justify-end pr-4">
+      {/* <div className="flex justify-end pr-4">
         <button
           className={`${btnStyling} mr-2 ${
             scrollAtStart && 'border-gray-100 text-gray-200'
@@ -133,7 +133,7 @@ const IAM = ({
         >
           <p className="text-black">{`>`}</p>
         </button>
-      </div>
+      </div> */}
     </section>
   )
 }
