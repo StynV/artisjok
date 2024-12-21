@@ -26,13 +26,13 @@ const Footer = ({
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="mt-auto bottom-0 left-0 right-0 flex lg:flex-row flex-col items-center justify-between pl-10 xl:pl-80 pr-10 xl:pr-80 py-6 bg-gray-100">
+    <footer className="mt-auto bottom-0 left-0 right-0 flex lg:flex-row flex-col items-center justify-between pl-10 xl:pl-80 pr-10 xl:pr-80 md:py-2 py-4 bg-gray-100">
       <div className="text-black lg:text-xl flex flex-col justify-center xl:items-start items-center w-full">
-        <p className="text-center">
+        <p className="text-center text-lg">
           Copyright {currentYear} - Independent Art Magazine
         </p>
         <Link
-          className="hover:text-blue-700 cursor-pointer"
+          className="hover:text-blue-700 cursor-pointer text-lg"
           target="_blank"
           href="https://cv-styn-vercauteren.vercel.app/"
         >
@@ -40,28 +40,31 @@ const Footer = ({
         </Link>
       </div>
       <div className="text-black lg:text-xl flex 3xl:flex-row flex-col gap-5 items-center justify-center w-full">
-        <div className="flex flex-row gap-4 mt-4">
+        <div className="flex flex-row gap-4 mt-2">
           <Icon
             href={facebook}
             src={facebookLogo.url}
             alt={facebookLogo.alt}
+            small
             grayscale={false}
           />
           <Icon
             href={instagram}
             src={instagramLogo.url}
             alt={instagramLogo.alt}
+            small
             grayscale={false}
           />
           <Icon
             href={linkedin}
             src={linkedinLogo.url}
             alt={linkedinLogo.alt}
+            small
             grayscale={false}
           />
         </div>
 
-        <a href="mailto:independentartmagazine@gmail.com">
+        <a href="mailto:independentartmagazine@gmail.com" className="text-lg">
           independentartmagazine@gmail.com
         </a>
       </div>

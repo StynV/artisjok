@@ -6,18 +6,20 @@ const Icon = ({
   src,
   alt,
   grayscale,
+  small,
 }: {
   href: string
   src: string
   alt: string
   grayscale: boolean
+  small?: boolean
 }) => (
   <Link href={href} target="_blank">
     <Image
       src={src}
       alt={alt}
-      height={50}
-      width={50}
+      height={small ? 40 : 50}
+      width={small ? 40 : 50}
       className={`${grayscale && 'grayscale'}`}
     />
   </Link>
