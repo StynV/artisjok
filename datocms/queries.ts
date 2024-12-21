@@ -20,12 +20,6 @@ const FOOTER_QUERY = `
       height
       width
     }
-    logo {
-      url
-      alt
-      height
-      width
-    }
 `
 
 export const LAYOUT_CONTENT_QUERY = `

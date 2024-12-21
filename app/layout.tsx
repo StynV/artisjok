@@ -55,7 +55,6 @@ export default async function RootLayout({
             <main className="min-h-screen overflow-y-auto bg-white flex flex-col pt-16">
               {children}
               <Footer
-                logo={homePagina.logo}
                 facebook={homePagina.facebook}
                 facebookLogo={homePagina.facebookLogo}
                 instagram={homePagina.instagram}

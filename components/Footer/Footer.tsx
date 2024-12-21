@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { Image as ImageModel } from '@/models/image'
@@ -8,7 +7,6 @@ import { Image as ImageModel } from '@/models/image'
 import Icon from '../Icon/Icon'
 
 interface props {
-  logo: ImageModel
   facebook: string
   facebookLogo: ImageModel
   instagram: string
@@ -18,7 +16,6 @@ interface props {
 }
 
 const Footer = ({
-  logo,
   facebook,
   facebookLogo,
   instagram,
@@ -31,14 +28,6 @@ const Footer = ({
   return (
     <footer className="mt-auto bottom-0 left-0 right-0 flex lg:flex-row flex-col items-center justify-between pl-10 xl:pl-80 pr-10 xl:pr-80 py-6 bg-gray-100">
       <div className="text-black lg:text-xl flex flex-col justify-center xl:items-start items-center w-full">
-        <Image
-          src={logo.url}
-          alt={logo.alt}
-          height={logo.height / 8}
-          width={logo.width / 8}
-          priority
-          className="pb-4"
-        />
         <p className="text-center">
           Copyright {currentYear} - Independent Art Magazine
         </p>
