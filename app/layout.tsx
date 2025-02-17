@@ -2,7 +2,6 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ViewTransitions } from 'next-view-transitions'
 
 import CookieBar from '@/components/CookieBar/CookieBar'
 import Footer from '@/components/Footer/Footer'
@@ -47,29 +46,27 @@ export default async function RootLayout({
     query: ONLY_LOGO_QUERY,
   })
   return (
-    <ViewTransitions>
-      <html lang="en">
-        <body className={inter.className}>
-          <Providers>
-            <NavBar />
-            <main className="min-h-screen overflow-y-auto bg-white flex flex-col pt-16">
-              {children}
-              <Footer
-                facebook={homePagina.facebook}
-                facebookLogo={homePagina.facebookLogo}
-                instagram={homePagina.instagram}
-                instagramLogo={homePagina.instagramLogo}
-                linkedin={homePagina.linkedin}
-                linkedinLogo={homePagina.linkedinLogo}
-              />
-            </main>
-            <CookieBar />
-            <Analytics />
-          </Providers>
-        </body>
-        <GoogleTagManager gtmId="GTM-TQFMR3BD" />
-        <GoogleTagManager gtmId="G-P8FM46Q057" />
-      </html>
-    </ViewTransitions>
+    <html lang="en">
+      <body className={inter.className}>
+        <Providers>
+          <NavBar />
+          <main className="min-h-screen overflow-y-auto bg-white flex flex-col pt-16">
+            {children}
+            <Footer
+              facebook={homePagina.facebook}
+              facebookLogo={homePagina.facebookLogo}
+              instagram={homePagina.instagram}
+              instagramLogo={homePagina.instagramLogo}
+              linkedin={homePagina.linkedin}
+              linkedinLogo={homePagina.linkedinLogo}
+            />
+          </main>
+          <CookieBar />
+          <Analytics />
+        </Providers>
+      </body>
+      <GoogleTagManager gtmId="GTM-TQFMR3BD" />
+      <GoogleTagManager gtmId="G-P8FM46Q057" />
+    </html>
   )
 }

@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 
 const NavBar = () => (
   <nav className="bg-gray-200 fixed w-full z-20 top-0 start-0 md:h-20">
