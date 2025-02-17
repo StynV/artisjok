@@ -1,76 +1,48 @@
-import { useState } from 'react'
+'use client'
+
+import { useActionState } from 'react'
 import emailjs from 'emailjs-com'
 
-import { useFeedbackSubmittedContext } from '@/context/feedback'
-import { postFeedbackRequest } from '@/datocms/postFeedbackRequest'
+import { State, submitForm } from '@/app/lib/actions'
 
 const Form = () => {
-  const [showThanks, setShowThanks] = useState(false)
+  const initialState: State = { message: null, errors: {}, succes: false }
+  const [state, formAction] = useActionState<State, FormData>(
+    async (prevState: State, formData: FormData) => {
+      const response = await submitForm(prevState, formData)
 
-  const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext()
-
-  const [formData, setFormData] = useState({
-    naam: '',
-    opmerking: '',
-    likes: 0,
-  })
-
-  const handleInput = (e: any) => {
-    const fieldName = e.target.name
-    const fieldValue = e.target.value
-
-    setFormData(prevState => ({
-      ...prevState,
-      [fieldName]: fieldValue,
-    }))
-  }
-
-  const submitForm = async (e: any) => {
-    e.preventDefault()
-
-    setShowThanks(true)
-    setInterval(() => setShowThanks(false), 5000)
-
-    setFormData({
-      naam: '',
-      opmerking: '',
-      likes: 0,
-    })
-
-    const response = await postFeedbackRequest({
-      naam: formData.naam,
-      opmerking: formData.opmerking,
-      likes: formData.likes,
-    })
-
-    if (response) {
-      reSetchSubmittedFeedbacks()
-
-      const templateParams = {
-        to_name: 'independentartmagazine@gmail.com',
-        from_name: 'independentartmagazine@gmail.com',
-        form_name: formData.naam,
-        message: formData.opmerking,
+      if (response.succes) {
+        try {
+          await emailjs.send(
+            'service_ux0vih8',
+            'template_ppfwqkl',
+            {
+              to_name: 'independentartmagazine@gmail.com',
+              from_name: 'independentartmagazine@gmail.com',
+              form_name: response?.data?.naam,
+              message: response?.data?.opmerking,
+            },
+            'yZ0JwXzFm2XsODp6Q'
+          )
+        } catch (emailError) {
+          console.error('Email sending failed:', emailError)
+        }
       }
 
-      emailjs.send(
-        'service_ux0vih8',
-        'template_ppfwqkl',
-        templateParams,
-        'yZ0JwXzFm2XsODp6Q'
-      )
-    }
-  }
+      return response
+    },
+    initialState
+  )
 
   return (
-    <form onSubmit={submitForm} className="md:mr-10 mb-4">
-      {showThanks && (
+    <form action={formAction} className="md:mr-10 mb-4">
+      {state?.succes && (
         <div className="bg-green-500 p-4 mb-4 text-white">
           <p>Dankjewel voor jouw feedback.</p>
         </div>
       )}
 
-      <div className="flex flex-col mb-2">
+      <section className="flex flex-col mb-2">
         <label className="mb-2 flex flex-row">
           <p className="text-black">Naam</p>
           <p className="text-red-600">*</p>
@@ -78,26 +50,39 @@ const Form = () => {
         <input
           type="text"
           name="naam"
-          onChange={handleInput}
-          value={formData.naam}
-          required
           className="border border-slate-300 mb-2 rounded-md p-2 text-black"
+          aria-describedby="naam-error"
         />
-      </div>
+      </section>
 
-      <div className="flex flex-col mb-2">
+      <section id="naam-error" aria-live="polite" aria-atomic="true">
+        {state?.errors?.naam &&
+          state.errors.naam.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
+      </section>
+
+      <section className="flex flex-col mb-2">
         <label className="mb-2 flex flex-row">
           <p className="text-black">Opmerking</p>
           <p className="text-red-600">*</p>
         </label>
         <textarea
           name="opmerking"
-          onChange={handleInput}
-          value={formData.opmerking}
-          required
           className="border border-slate-300 mb-2 rounded-md xl:p-2 lg:p-0 md:p-2 text-black"
+          aria-describedby="opmerking-error"
         />
-      </div>
+      </section>
+      <section id="opmerking-error" aria-live="polite" aria-atomic="true">
+        {state?.errors?.opmerking &&
+          state.errors.opmerking.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
+      </section>
 
       <button
         type="submit"
