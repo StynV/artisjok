@@ -4,14 +4,19 @@ import { useActionState } from 'react'
 import emailjs from 'emailjs-com'
 
 import { State, submitForm } from '@/app/lib/actions'
+import { useFeedbackSubmittedContext } from '@/context/feedback'
 
 const Form = () => {
   const initialState: State = { message: null, errors: {}, succes: false }
+  const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext()
+
   const [state, formAction] = useActionState<State, FormData>(
     async (prevState: State, formData: FormData) => {
       const response = await submitForm(prevState, formData)
 
       if (response.succes) {
+        reSetchSubmittedFeedbacks()
+
         try {
           await emailjs.send(
             'service_ux0vih8',
