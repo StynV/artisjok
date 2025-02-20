@@ -1,22 +1,21 @@
 'use client'
 
 import { useActionState } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import emailjs from 'emailjs-com'
 
 import { State, submitForm } from '@/app/lib/actions'
-import { useFeedbackSubmittedContext } from '@/context/feedback'
 
 const Form = () => {
   const initialState: State = { message: null, errors: {}, succes: false }
-  const { reSetchSubmittedFeedbacks } = useFeedbackSubmittedContext()
+
+  const queryClient = useQueryClient()
 
   const [state, formAction] = useActionState<State, FormData>(
     async (prevState: State, formData: FormData) => {
       const response = await submitForm(prevState, formData)
 
       if (response.succes) {
-        reSetchSubmittedFeedbacks()
-
         try {
           await emailjs.send(
             'service_ux0vih8',
@@ -33,6 +32,8 @@ const Form = () => {
           console.error('Email sending failed:', emailError)
         }
       }
+
+      await queryClient.invalidateQueries({ queryKey: ['feedbacks'] })
 
       return response
     },
